@@ -1,5 +1,5 @@
 var request = require('request'),
-    wchatValidateToken = require(process.cwd() + '/app/controllers/validateWXToken.js');
+    wchatValidateToken = require(process.cwd() + '/jerryapp/controllers/validateWXToken.js');
 
 console.log(" inside index.js, begin to setup module.exports");
 module.exports = function (app) {

@@ -1,10 +1,10 @@
 var port = 18080;
 var express = require('express'),
-    routesEngine = require('./app/routes/index.js'); // index.js actually
+    routesEngine = require('./jerryapp/routes/index.js'); // index.js actually
     // X, X.js, X.json and X.node see blog http://www.ruanyifeng.com/blog/2015/05/require.html
 
     
-var session = require("./app/session/session.js"),
+var session = require("./jerryapp/session/session.js"),
     cookieParser = require('cookie-parser'),
     babelCore = require('babel-core'),
     bodyParser = require('body-parser');
@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
 app.use('/public', express.static(process.cwd() + '/public'));
     app.use('/client', express.static(process.cwd() + '/client'));
     // mount sub application
-    app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
+    app.use('/controllers', express.static(process.cwd() + '/jerryapp/controllers'));
 
 
 
