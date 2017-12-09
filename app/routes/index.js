@@ -17,6 +17,7 @@ module.exports = function (app) {
           };
           request(options,function(error,response,data){
             if(data){
+              console.log("Jerry response: " + data);
               res.send(data);
             }else {
               res.send("Jerry error: " + error);

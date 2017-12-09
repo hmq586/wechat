@@ -5,9 +5,9 @@
   "engines": {
     "node": "8.9.1"
   },
-  "main": "dummy.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node dummy.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "ejs": "^2.5.7",
