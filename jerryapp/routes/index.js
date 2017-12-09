@@ -18,6 +18,10 @@ module.exports = function (app) {
       timestamp = req.query.timestamp,
       echostr   = req.query.echostr,
       nonce     = req.query.nonce;
+
+      console.log("signature: " + signature);
+      console.log("timestamp: " + timestamp);
+      console.log("echostr: " + echostr);
       oriArray = new Array();
       oriArray[0] = nonce;
       oriArray[1] = timestamp;
@@ -27,7 +31,7 @@ module.exports = function (app) {
 
       var shaObj = new jsSHA(original, 'TEXT');
       var scyptoString = shaObj.getHash('SHA-1', 'HEX');
-
+      console.log("calculated string: " + scyptoString);
      if (signature == scyptoString) {
         res.send(echostr);
      } else {
