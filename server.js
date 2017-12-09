@@ -31,7 +31,7 @@ app.listen(process.env.PORT || 3000, function () {
         });
     */
 
-app.get('/', function(req, res){
+app.route("/").get( function(req, res){
       console.log("method: " + req.method);
       var url = "https://www.baidu.com";
       console.log('/:' + url);
