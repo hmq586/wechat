@@ -29,8 +29,9 @@ module.exports = function (app) {
       oriArray.sort();
       var original = oriArray.join('');
 
-      var shaObj = new jsSHA(original, 'TEXT');
-      var scyptoString = shaObj.getHash('SHA-1', 'HEX');
+      var shaObj = new jsSHA("SHA-1", 'TEXT');
+      shaObj.update(original);
+      var scyptoString = shaObj.getHash('HEX');
       console.log("calculated string: " + scyptoString);
      if (signature == scyptoString) {
         res.send(echostr);

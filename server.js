@@ -7,7 +7,7 @@ routesEngine(app);
 
 app.listen(process.env.PORT || 3000, function () {
       // c:\\code\\git\\wechat\\app
-  console.log('Listening on port 18080, process.cwd(): ' + process.cwd() );
+  console.log('Listening on port, process.cwd(): ' + process.cwd() );
 });
 
    
