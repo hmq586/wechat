@@ -10,7 +10,30 @@ module.exports = function (app) {
       res.header("Content-Type", "application/json;charset=utf-8");
       next();
     });
-  
+
+  app.route('/wechat').get(function(req,res){
+    var token="jerry";
+    var signature = req.query.signature,
+      timestamp = req.query.timestamp,
+      echostr   = req.query.echostr,
+      nonce     = req.query.nonce;
+      oriArray = new Array();
+      oriArray[0] = nonce;
+      oriArray[1] = timestamp;
+      oriArray[2] = token;
+      oriArray.sort();
+      var original = oriArray.join('');
+
+      var shaObj = new jsSHA(original, 'TEXT');
+      var scyptoString = shaObj.getHash('SHA-1', 'HEX');
+
+     if (signature == scyptoString) {
+        res.send(echostr);
+     } else {
+        res.send('bad token');
+     }
+  });
+
   app.route('/').get(function (req, res) {
         var url = "https://www.baidu.com";
         console.log('/:' + url);
