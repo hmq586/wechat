@@ -3,26 +3,26 @@ var express = require('express'),
     routesEngine = require('./app/routes/index.js'); // index.js actually
     // X, X.js, X.json and X.node see blog http://www.ruanyifeng.com/blog/2015/05/require.html
 
-/*    
+    
 var session = require("./app/session/session.js"),
     cookieParser = require('cookie-parser'),
     babelCore = require('babel-core'),
     bodyParser = require('body-parser');
-*/
+
 
 var app = express();
 
-/*  
+  
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-*/
+
 
 // express.static: This is a built-in middleware function in Express. 
 // It serves static files and is based on serve-static.
     
-/*
+
 app.use('/public', express.static(process.cwd() + '/public'));
     app.use('/client', express.static(process.cwd() + '/client'));
     // mount sub application
@@ -41,7 +41,7 @@ app.use('/public', express.static(process.cwd() + '/public'));
       next(); // pass control to the next handler
     });
 
-*/
+
 
     routesEngine(app);
 
