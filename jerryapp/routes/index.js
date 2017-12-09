@@ -1,4 +1,5 @@
 var request = require('request');
+var jsSHA = require('jssha');
 
 module.exports = function (app) {
 
