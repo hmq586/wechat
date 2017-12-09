@@ -1,14 +1,13 @@
-var port = 18080;
 var express = require('express');
-    routesEngine = require('./jerryapp/routes/index.js'); // index.js actually
+//    routesEngine = require('./jerryapp/routes/index.js'); // index.js actually
     // X, X.js, X.json and X.node see blog http://www.ruanyifeng.com/blog/2015/05/require.html
-var request = require('request');
+// var request = require('request');
     
 var app = express();
 
-app.listen(port, function () {
+app.listen(process.env.PORT || 3000, function () {
       // c:\\code\\git\\wechat\\app
-  console.log('Listening on port 18080, process.cwd(): ' + process.cwd() + " port: " + port );
+  console.log('Listening on port 18080, process.cwd(): ' + process.cwd() );
 });
 
     /*
