@@ -1,7 +1,7 @@
 {
-  "name": "jerrylist",
-  "version": "0.3.0",
-  "description": "A demo to host your UI5 application in Heroku",
+  "name": "jerrywechat",
+  "version": "0.0.1",
+  "description": "Wechat demo",
   "engines": {
     "node": "8.9.1"
   },
