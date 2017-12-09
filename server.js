@@ -51,6 +51,7 @@ app.use('/public', express.static(process.cwd() + '/public'));
         console.log('Listening on port 18080, process.cwd(): ' + process.cwd() + " port: " + port );
     });
 
+    /*
     app.route('/').get(function (req, res) {
         var url = "https://www.baidu.com";
         console.log('/:' + url);
@@ -58,9 +59,6 @@ app.use('/public', express.static(process.cwd() + '/public'));
         // Jerry 2017-12-9 11:04AM - no proxy works under normal network environment
           var options = {
             url: url,
-            /*
-            host:'proxy.sha.sap.corp',
-            port:'8080', */
             method: "GET"
           };
           request(options,function(error,response,data){
@@ -72,4 +70,9 @@ app.use('/public', express.static(process.cwd() + '/public'));
             }
           });
         });
+    */
 
+    app.get('/', function(req, res){
+      console.log("method: " + req.method);
+    res.send("Hello World");
+  });
