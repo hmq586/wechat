@@ -1,9 +1,11 @@
 var request = require('request'),
     wchatValidateToken = require(process.cwd() + '/app/controllers/validateWXToken.js');
 
+console.log(" inside index.js, begin to setup module.exports");
 module.exports = function (app) {
-  app.route('/')
-      .get(function (req, res) {
+
+  console.log("inside index.js-----module.exports");
+  app.route('/').get(function (req, res) {
         var url = "https://www.baidu.com";
         console.log('/:' + url);
         // res.send("Hello");
@@ -17,7 +19,6 @@ module.exports = function (app) {
           };
           request(options,function(error,response,data){
             if(data){
-              console.log("Jerry response: " + data);
               res.send(data);
             }else {
               res.send("Jerry error: " + error);
@@ -48,3 +49,4 @@ module.exports = function (app) {
     });
   });
 };
+console.log(" inside index.js, end to setup module.exports");
