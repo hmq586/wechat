@@ -12,7 +12,7 @@ module.exports = function (app) {
       next();
     });
 
-  app.route('/wechat').get(function(req,res){
+  app.route('/').get(function(req,res){
     var token="jerry";
     var signature = req.query.signature,
       timestamp = req.query.timestamp,
@@ -35,7 +35,7 @@ module.exports = function (app) {
      }
   });
 
-  app.route('/').get(function (req, res) {
+  app.route('/test').get(function (req, res) {
         var url = "https://www.baidu.com";
         console.log('/:' + url);
         // res.send("Hello");
