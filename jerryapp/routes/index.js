@@ -44,6 +44,7 @@ module.exports = function (app) {
         var MsgType = getXMLNodeValue('MsgType',_da);
         var Content = getXMLNodeValue('Content',_da);
         Content = "**** Add by Jerry " + Content + " ****"; 
+        console.log("new Content: " + Content);
         var MsgId = getXMLNodeValue('MsgId',_da);
         var xml = '<xml><ToUserName>'+FromUserName+'</ToUserName><FromUserName>'+ToUserName+'</FromUserName><CreateTime>'+CreateTime+'</CreateTime><MsgType>'+MsgType+'</MsgType><Content>'+Content+'</Content></xml>';
         res.send(xml);
