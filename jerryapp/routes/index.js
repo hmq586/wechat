@@ -39,7 +39,7 @@ module.exports = function (app) {
         if( body.length === 2){
             Content = "Add by Jerry: " + body[1];
         } 
-        var xml = replyMessage(Content);
+        var xml = replyMessage(_da, Content);
         res.send(xml);
     });
   });
