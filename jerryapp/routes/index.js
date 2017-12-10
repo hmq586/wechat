@@ -1,15 +1,11 @@
 var request = require('request');
 var jsSHA = require('jssha');
 var tokenValidationTool = require("../tool/tokenValidation.js");
+var getXMLNodeValue = require("../tool/xmlparse.js");
+var replyMessage = require("../tool/replyMessage.js");
 const content_pattern = /<!\[CDATA\[(.*)\]\]>/;
 
 module.exports = function (app) {
-
-  function getXMLNodeValue(node_name,xml){
-    var tmp = xml.split("<"+node_name+">");
-    var _tmp = tmp[1].split("</"+node_name+">");
-    return _tmp[0];
-  }
 
   app.all('*', function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
@@ -30,7 +26,6 @@ module.exports = function (app) {
   });
 
   app.route('/').post(function(req,res){
-
     var _da;
     req.on("data",function(data){
       /*微信服务器传过来的是xml格式的，是buffer类型，因为js本身只有字符串数据类型，
@@ -39,19 +34,12 @@ module.exports = function (app) {
     });
 
     req.on("end",function(){
-        var ToUserName = getXMLNodeValue('ToUserName',_da);
-        var FromUserName = getXMLNodeValue('FromUserName',_da);
-        var CreateTime = getXMLNodeValue('CreateTime',_da);
-        var MsgType = getXMLNodeValue('MsgType',_da);
         var Content = getXMLNodeValue('Content',_da);
         var body = content_pattern.exec(Content);
         if( body.length === 2){
             Content = "Add by Jerry: " + body[1];
         } 
-        console.log("new Content: " + Content);
-        var MsgId = getXMLNodeValue('MsgId',_da);
-        var xml = '<xml><ToUserName>'+FromUserName+'</ToUserName><FromUserName>'+ToUserName+'</FromUserName><CreateTime>'+CreateTime+'</CreateTime><MsgType>'+MsgType+'</MsgType><Content>'+Content+'</Content></xml>';
-        console.log("xml to be sent: " + xml);
+        var xml = replyMessage(Content);
         res.send(xml);
     });
   });
