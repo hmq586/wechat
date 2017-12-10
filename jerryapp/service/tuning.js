@@ -15,7 +15,9 @@ module.exports = function(req, res){
     req.on("end",function(){
         console.log("original text: " + _da);
         var Content = getXMLNodeValue('Content',_da);
+        console.log("content: " + Content);
         var body = content_pattern.exec(Content);
+        console.log("result size: " + body.length);
         var requesturl = "";
         if( body.length === 2){
             // search keyword = body[1] by tuning API
