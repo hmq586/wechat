@@ -23,7 +23,7 @@ module.exports = function(req, res){
             // search keyword = body[1] by tuning API
             console.log("body[0]: " + body[0]);
             console.log("body[1]: " + body[1]);
-            requesturl = url + body[1];
+            requesturl = url + "成都天气预报";//body[1];
         } 
         var options = {
             url: requesturl,
