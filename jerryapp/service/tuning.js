@@ -17,6 +17,7 @@ module.exports = function(req, res){
         var Content = getXMLNodeValue('Content',_da);
         console.log("content: " + Content);
         var voice = getXMLNodeValue("Recognition", _da);
+        console.log("Value from Recognition: " + voice);
         if( !!voice ){
            requesturl = url + encodeURI(voice);
         }
