@@ -3,7 +3,7 @@ var getXMLNodeValue = require("../tool/xmlparse.js");
 var replyMessage = require("../tool/replyMessage.js");
 const content_pattern = /<!\[CDATA\[(.*)\]\]>/;
 
-var url = "http://www.tuling123.com/openapi/api?key=de4ae9269c7438c33de5806562a35cac&info=";
+const url = "http://www.tuling123.com/openapi/api?key=de4ae9269c7438c33de5806562a35cac&info=";
 
 module.exports = function(req, res){
 
@@ -15,12 +15,13 @@ module.exports = function(req, res){
     req.on("end",function(){
         var Content = getXMLNodeValue('Content',_da);
         var body = content_pattern.exec(Content);
+        var requesturl = "";
         if( body.length === 2){
             // search keyword = body[1] by tuning API
-            url = url + body[1];
+            requesturl = url + body[1];
         } 
         var options = {
-            url: url,
+            url: requesturl,
             method: "GET"
         };
         console.log("request sent to Tuning API: " + url);
