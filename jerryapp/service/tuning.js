@@ -25,7 +25,8 @@ module.exports = function(req, res){
         };
         request(options,function(error,response,data){
            if(data){
-              var xml = replyMessage(_da, data);
+              var text = JSON.parse(data).text;
+              var xml = replyMessage(_da, text);
               res.send(xml);
            }else {
               res.send("Error when calling Tuning API: " + error);
