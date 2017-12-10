@@ -23,8 +23,10 @@ module.exports = function(req, res){
             url: url,
             method: "GET"
         };
+        console.log("request sent to Tuning API: " + url);
         request(options,function(error,response,data){
            if(data){
+            console.log("response from tuning: " + data);
               var text = JSON.parse(data).text;
               var xml = replyMessage(_da, text);
               res.send(xml);
