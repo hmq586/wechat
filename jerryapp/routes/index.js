@@ -14,7 +14,16 @@ module.exports = function (app) {
     });
 
   app.route('/').get(function(req,res){
-    tokenValidationTool(req, res);
+    if( req.query && req.query.echostr) {
+      tokenValidationTool(req, res);
+    }
+    else{
+      console.log("game on");
+      for( var a in req){
+        console.log("name: " + a + " value: " + req[a]);
+      }
+      res.send("Welcome");
+    }
   });
 
   app.route('/test').get(function (req, res) {
