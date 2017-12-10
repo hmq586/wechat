@@ -1,6 +1,7 @@
 var request = require('request');
 var jsSHA = require('jssha');
 var tokenValidationTool = require("../tool/tokenValidation.js");
+const content_pattern = /<!\[CDATA\[(.*)\]\]>/;
 
 module.exports = function (app) {
 
@@ -43,7 +44,10 @@ module.exports = function (app) {
         var CreateTime = getXMLNodeValue('CreateTime',_da);
         var MsgType = getXMLNodeValue('MsgType',_da);
         var Content = getXMLNodeValue('Content',_da);
-        Content = "Add by Jerry: " + Content; 
+        var body = content_pattern.exec(Content);
+        if( body.length === 2){
+            Content = "Add by Jerry: " + body[1];
+        } 
         console.log("new Content: " + Content);
         var MsgId = getXMLNodeValue('MsgId',_da);
         var xml = '<xml><ToUserName>'+FromUserName+'</ToUserName><FromUserName>'+ToUserName+'</FromUserName><CreateTime>'+CreateTime+'</CreateTime><MsgType>'+MsgType+'</MsgType><Content>'+Content+'</Content></xml>';
