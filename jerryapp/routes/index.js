@@ -25,8 +25,8 @@ module.exports = function (app) {
   });
 
   app.route('/').post(function(req,res){
-    echoService(req, res);
-    // tuningService(req, res);
+    // echoService(req, res);
+    tuningService(req, res);
   });
 
   app.route('/test').get(function (req, res) {

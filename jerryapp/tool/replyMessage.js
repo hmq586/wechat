@@ -1,4 +1,3 @@
-
 var getXMLNodeValue = require("./xmlparse.js");
 
 module.exports = function(originalBody, contentToReply){
