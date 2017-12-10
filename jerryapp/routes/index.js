@@ -47,6 +47,7 @@ module.exports = function (app) {
         console.log("new Content: " + Content);
         var MsgId = getXMLNodeValue('MsgId',_da);
         var xml = '<xml><ToUserName>'+FromUserName+'</ToUserName><FromUserName>'+ToUserName+'</FromUserName><CreateTime>'+CreateTime+'</CreateTime><MsgType>'+MsgType+'</MsgType><Content>'+Content+'</Content></xml>';
+        console.log("xml to be sent: " + xml);
         res.send(xml);
     });
   });
