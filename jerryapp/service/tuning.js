@@ -13,6 +13,7 @@ module.exports = function(req, res){
     });
 
     req.on("end",function(){
+        console.log("original text: " + _da);
         var Content = getXMLNodeValue('Content',_da);
         var body = content_pattern.exec(Content);
         var requesturl = "";
