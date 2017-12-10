@@ -2,7 +2,7 @@ var request = require('request');
 var jsSHA = require('jssha');
 var tokenValidationTool = require("../tool/tokenValidation.js");
 var echoService = require("../service/echo.js");
-
+var tuningService = require("../service/tuning.js");
 
 module.exports = function (app) {
 
@@ -25,7 +25,8 @@ module.exports = function (app) {
   });
 
   app.route('/').post(function(req,res){
-    echoService(req, res);
+    // echoService(req, res);
+    tuningService(req, res);
   });
 
   app.route('/test').get(function (req, res) {
