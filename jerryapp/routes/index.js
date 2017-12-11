@@ -36,7 +36,7 @@ module.exports = function (app) {
     req.on("end",function(){
         console.log("new http post: " + _da);
         var msgType = formattedValue(getXMLNodeValue('MsgType',_da));
-        if( msgType === "text"}{
+        if( msgType === "text"){
            var question = formattedValue(getXMLNodeValue('Content',_da));
            tuningService(_da, question, res);
         }
