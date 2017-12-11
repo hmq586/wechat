@@ -39,7 +39,11 @@ module.exports = function (app) {
            tuningService(_da, question, res);
         }
         else if( msgType === "event"){
-          res.send("event");
+          var event = formattedValue(getXMLNodeValue('Event',_da));
+          if( event === "subscribe"){
+            var replyxml = replyMessage(_da, "Hello World by Jerry");
+            res.send(replyxml);
+          }
         }
     });
   });
