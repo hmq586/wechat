@@ -1,7 +1,6 @@
 var request = require('request');
 var getXMLNodeValue = require("../tool/xmlparse.js");
 var replyMessage = require("../tool/replyMessage.js");
-var formattedValue = require("../tool/formatValue.js");
 
 const url = "http://www.tuling123.com/openapi/api?key=de4ae9269c7438c33de5806562a35cac&info=";
 
@@ -14,9 +13,8 @@ module.exports = function(wholecontent, question, res){
      requesturl = url + encodeURI(voice);
   }
   else {
-     var formatted = formattedValue(question);
-     console.log("use Tuning API with key: " + formatted);
-     requesturl = url + encodeURI(formatted);
+     console.log("use Tuning API with key: " + question);
+     requesturl = url + encodeURI(question);
   } 
 
   var options = {
