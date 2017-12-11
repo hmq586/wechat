@@ -5,6 +5,7 @@ var echoService = require("../service/echo.js");
 var tuningService = require("../service/tuning.js");
 var getXMLNodeValue = require("../tool/xmlparse.js");
 var formattedValue = require("../tool/formatValue.js");
+var replyMessage = require("../tool/replyMessage.js");
 
 module.exports = function (app) {
 
