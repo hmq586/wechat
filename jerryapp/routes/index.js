@@ -49,7 +49,7 @@ module.exports = function (app) {
           else if( event === "CLICK"){
             var eventtext = replyMessage(_da, "Event");
             res.send(eventtext);
-          })
+          };
         }
     });
   });
