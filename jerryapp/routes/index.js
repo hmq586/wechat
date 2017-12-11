@@ -36,9 +36,13 @@ module.exports = function (app) {
     req.on("end",function(){
         console.log("new http post: " + _da);
         var msgType = formattedValue(getXMLNodeValue('MsgType',_da));
-        if( msgType === "text" || msgType === "voice") {
+        if( msgType === "text"}{
            var question = formattedValue(getXMLNodeValue('Content',_da));
            tuningService(_da, question, res);
+        }
+        else if( msgType === "voice"){
+           var voice = formattedValue(getXMLNodeValue('Recognition',_da));
+           tuningService(_da, voice, res);
         }
         else if( msgType === "event"){
           var event = formattedValue(getXMLNodeValue('Event',_da));

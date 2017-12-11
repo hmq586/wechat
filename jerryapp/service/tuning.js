@@ -6,16 +6,8 @@ const url = "http://www.tuling123.com/openapi/api?key=de4ae9269c7438c33de5806562
 
 module.exports = function(wholecontent, question, res){
 
-  var voice = getXMLNodeValue("Recognition", wholecontent);
-  var requesturl = "";
-  console.log("Value from Recognition: " + voice);
-  if( !!voice ){
-     requesturl = url + encodeURI(voice);
-  }
-  else {
-     console.log("use Tuning API with key: " + question);
-     requesturl = url + encodeURI(question);
-  } 
+  console.log("use Tuning API with key: " + question);
+  requesturl = url + encodeURI(question); 
 
   var options = {
             url: requesturl,
