@@ -2,7 +2,7 @@ var request = require('request');
 var jsSHA = require('jssha');
 var tokenValidationTool = require("../tool/tokenValidation.js");
 var echoService = require("../service/echo.js");
-// var tuningService = require("../service/tuning.js");
+var tuningService = require("../service/tuning.js");
 var getXMLNodeValue = require("../tool/xmlparse.js");
 var formattedValue = require("../tool/formatValue.js");
 
@@ -27,8 +27,6 @@ module.exports = function (app) {
   });
 
   app.route('/').post(function(req,res){
-    // echoService(req, res);
-    // tuningService(req, res);
     var _da;
     req.on("data",function(data){
         _da = data.toString("utf-8");
@@ -38,7 +36,7 @@ module.exports = function (app) {
         var msgType = formattedValue(getXMLNodeValue('MsgType',_da));
         if( msgType === "text"){
            var question = formattedValue(getXMLNodeValue('Content',_da));
-           echoService(_da, question, res);
+           tuningService(_da, question, res);
         }
         else if( msgType === "event"){
           res.send("event");
