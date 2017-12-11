@@ -34,6 +34,7 @@ module.exports = function (app) {
     });
 
     req.on("end",function(){
+        console.log("new http post: " + _da);
         var msgType = formattedValue(getXMLNodeValue('MsgType',_da));
         if( msgType === "text"){
            var question = formattedValue(getXMLNodeValue('Content',_da));
@@ -46,6 +47,50 @@ module.exports = function (app) {
             res.send(replyxml);
           }
         }
+    });
+  });
+
+  app.route("/token").get(function(req, res){
+    var oprions = {
+          url:"https://api.weixin.qq.com/cgi-bin/menu/create?access_token="+"ncc75g3kkO5yQvRQJTgqXINn3bNv8J6-TBym_3ANwazN4Ahzp952dpUpyPt8xjRlz-fTMbtPAVL1CJDzhzJvwxcxSLNDWPub6gsnWH-0Dc5HerR-0W5TBwyonxNM_ih9CZIcAHAWTC",
+          method: "POST",
+          json:true,
+          headers: {
+          "content-type": "application/json"},
+          body:{
+                 "button":[
+                     {
+                       "name":"账户管理",
+                       "sub_button":[{
+                            "type": "click",
+                            "name": "创建账户",
+                            "key": "dataCreate"
+                       },{
+                            "type": "click",
+                            "name": "查询账户",
+                             "key": "dataQuery"
+                       }]
+                     },
+                     {
+                       "name":"试驾",
+                       "sub_button":[{
+                            "type": "click",
+                            "name": "预约试驾",
+                            "key": "tryDrive"
+                       },{
+                            "type": "click",
+                            "name": "查询试驾",
+                             "key": "queryDrive"
+                       }]
+                     }
+
+                 ]
+            }
+        };
+    request(oprions,function(error,response,data){
+      console.log("response: " + response);
+      console.log("error: " + error);
+      console.log("data: " + data);
     });
   });
 
