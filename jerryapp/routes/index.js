@@ -37,8 +37,8 @@ module.exports = function (app) {
     req.on("end",function(){
         var msgType = formattedValue(getXMLNodeValue('MsgType',_da));
         if( msgType === "text"){
-           var content = formattedValue(getXMLNodeValue('Content',_da));
-           echoService(content, res);
+           var question = formattedValue(getXMLNodeValue('Content',_da));
+           echoService(_da, question, res);
         }
         else if( msgType === "event"){
           res.send("event");
