@@ -46,6 +46,10 @@ module.exports = function (app) {
             var replyxml = replyMessage(_da, "Hello World by Jerry");
             res.send(replyxml);
           }
+          else if( event === "CLICK"){
+            var eventtext = replyMessage(_da, "Event");
+            res.send(eventtext);
+          })
         }
     });
   });
