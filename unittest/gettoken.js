@@ -26,6 +26,57 @@ function getToken() {
      });
 }
 
+function createIndividualCustomer(token){
+	return new Promise(function(resolve, reject){
+		var oPostData = {
+			"FirstName":"Jerryaaa",
+ 			"LastName":"Wang",
+ 		"RoleCode": "ZCRM01",
+ 		"CountryCode": "US",
+ 		"StatusCode": "2"
+		};
+		var sPostData = JSON.stringify(oPostData);
+		var requestC = request.defaults({jar: true});
+        var createOptions = {
+              url: config.individualCustomerurl,
+              method: "POST",
+              json:true,
+              headers: {
+                  "content-type": "application/json",
+                  'x-csrf-token': token
+              },
+              body:sPostData
+        };
+        console.log("payload sent to create individualCustomer: " + sPostData);
+        requestC(createOptions,function(error,response,data){
+            if(error){
+                reject(error.message);
+            }else {
+               resolve(data);
+            }
+        });// end of requestC
+	});
+}
+
+function printObject(oData){
+	for( var a in oData){
+		console.log("key: " + a);
+		console.log("value: " + oData[a]);
+		if( typeof oData[a] === "object"){
+			printObject(oData[a]);
+		}
+	}
+}
+/*
 getToken().then(function(token){
 	console.log("token received: " + token);
 });
+*/
+getToken().then(function(token) {
+	console.log("token received: " + token);
+	createIndividualCustomer(token).then(function(data){
+		console.log("account created: " + data);
+		printObject(data);
+	});
+});
+
