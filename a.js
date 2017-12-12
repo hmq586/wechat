@@ -1,12 +1,15 @@
 // Jerry 2017-12-9 11:39AM we can currently treat module as a keyword in nodejs environment
-
+var config = require('./config');
+/*
 console.log('module.id: ', module.id);
 console.log('module.exports: ', module.exports);
 console.log('module.parent: ', module.parent);
 console.log('module.filename: ', module.filename);
 console.log('module.loaded: ', module.loaded);
 console.log('module.children: ', module.children);
-console.log('module.paths: ', module.paths);
+console.log('module.paths: ', module.paths);*/
+
+console.log(config.debug);
 
 /*
 require 并不是全局性命令，而是每个模块提供的一个内部方法，也就是说，
