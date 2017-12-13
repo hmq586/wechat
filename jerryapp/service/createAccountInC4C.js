@@ -1,5 +1,6 @@
 var config = require("../../config.js");
 var request = require('request');
+var postWCMessage = require("./postMessageToUser.js");
 
 var getTokenOptions = {
         url: config.individualCustomerurl,
@@ -66,17 +67,15 @@ function printObject(oData){
 		}
 	}
 }
-/*
-getToken().then(function(token){
-	console.log("token received: " + token);
-});
-*/
 
 module.exports = function createAccount(fromUserName){
   getToken().then(function(token) {
   console.log("token received: " + token);
   _createIndividualCustomer(token, fromUserName).then(function(data){
-    console.log("account created: " + data.d.results.CustomerID);
+    var message = "account created: " + data.d.results.CustomerID;
+    console.log(message);
+    postWCMessage(fromUserName, message);
+
   });
 });
 
