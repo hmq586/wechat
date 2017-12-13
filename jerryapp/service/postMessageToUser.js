@@ -34,9 +34,9 @@ function sendWCMeaasge(toUser,sMessage){
         console.log("response: " + response);
         console.log("data: " + data);
         console.log("response...............................................");
-        printObject(response);
+        //printObject(response);
         console.log("data.....................................................");
-        printObject(data);
+        //printObject(data);
       });
   }
 
