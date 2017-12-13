@@ -1,6 +1,16 @@
 var config = require("../../config.js");
 var request = require("request");
 
+function printObject(oData){
+	for( var a in oData){
+		console.log("key: " + a);
+		console.log("value: " + oData[a]);
+		if( typeof oData[a] === "object"){
+			printObject(oData[a]);
+		}
+	}
+}
+
 function sendWCMeaasge(toUser,sMessage){
 	console.log("begin to send message to user: " + toUser + " with message: " + sMessage);
     var options = {
@@ -23,6 +33,10 @@ function sendWCMeaasge(toUser,sMessage){
       	console.log("error? " + error);
         console.log("response: " + response);
         console.log("data: " + data);
+        console.log("response...............................................");
+        printObject(response);
+        console.log("data.....................................................");
+        printObject(data);
       });
   }
 
