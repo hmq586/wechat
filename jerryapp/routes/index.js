@@ -30,25 +30,6 @@ module.exports = function (app) {
 
   app.route('/').post(function(req,res){
     var _da;
-    // Jerry 2017-12-13 10:51AM - another way to parse request detail
-    /*
-    var oReqData = req.body.xml;
-    var toUserName = oReqData.ToUserName;
-    var FromUserName = oReqData.FromUserName;
-    var CreateTime = oReqData.CreateTime;
-    var MsgType = oReqData.MsgType;
-    var Content = oReqData.Content;
-    var MsgId = oReqData.MsgId;
-    var Event = oReqData.Event;
-    var EventKey = oReqData.EventKey;
-
-    console.log("To user name: " + oReqData.ToUserName);
-    console.log("From user name: " + oReqData.FromUserName);
-    console.log("Msg Type: " + MsgType);
-    console.log("Event: " + Event);
-    console.log("Event key: " + EventKey); */
-
-    // end
     req.on("data",function(data){
         _da = data.toString("utf-8");
     });

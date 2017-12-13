@@ -9,3 +9,9 @@ Express: Web 应用程序框架
 # 2017-12-10
 
 Nodejs执行结果和浏览器里结果不一样。。。
+
+# 2017-12-13
+
+* node-inspector &
+* node --debug app.js
+* 通过URL http://127.0.0.1:8080/debug?port=5858 就可以进行调试了。

@@ -19,7 +19,7 @@ function getToken() {
       requestC(getTokenOptions,function(error,response,body){
        var csrfToken = response.headers['x-csrf-token'];
        if(!csrfToken){
-          reject({message:"验证令牌错误"});
+          reject({message:"token fetch error"});
           return;
        }
        resolve(csrfToken);
