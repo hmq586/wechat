@@ -14,11 +14,9 @@ function printObject(oData){
 
 function sendWCMeaasge(toUser,sMessage){
 	console.log("begin to send message to user: " + toUser + " with message: " + sMessage);
-    var fuck = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=4_Kxv-HMtXK1375uwwkOfMfh-KvtkEO4blgZe47z5Dh7sIRgqT9zi0gO22c6USJZel9TaX9jbNYB5cKfsZyoAprIx89laeoS9hLwOEUhhjg5OujcYwElSEnKUi-psPQMbAHADEA";
     var options = {
-            url: //"https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" +
-            // encodeURI(config.access_token),
-            fuck, 
+            url: "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" +
+            config.accessToken,
             method: "POST",
             json:true,
             headers: {
