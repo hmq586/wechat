@@ -36,7 +36,8 @@ function sendWCMeaasge(toUser,sMessage){
         console.log("response...............................................");
         //printObject(response);
         console.log("data.....................................................");
-        //printObject(data);
+        console.log("Status message: " + response.statusMessage);
+        console.log("Data: " + data.errmsg);
       });
   }
 
