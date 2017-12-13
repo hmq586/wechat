@@ -74,7 +74,7 @@ getToken().then(function(token){
 getToken().then(function(token) {
 	console.log("token received: " + token);
 	createIndividualCustomer(token).then(function(data){
-		console.log("account created: " + data.CustomerID);
+		console.log("account created: " + data.d.results.CustomerID);
 	});
 });
 
