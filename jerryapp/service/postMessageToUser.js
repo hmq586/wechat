@@ -18,7 +18,7 @@ function sendWCMeaasge(toUser,sMessage){
               }
                 }
           };
-      request(oprions,function(error,response,data){});
+      request(options,function(error,response,data){});
   }
 
 module.exports = sendWCMeaasge;
