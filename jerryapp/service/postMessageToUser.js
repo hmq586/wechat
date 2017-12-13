@@ -15,7 +15,7 @@ function sendWCMeaasge(toUser,sMessage){
 	console.log("begin to send message to user: " + toUser + " with message: " + sMessage);
     var options = {
             url:"https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" +
-            config.access_token, 
+            config.accessToken, 
             method: "POST",
             json:true,
             headers: {
