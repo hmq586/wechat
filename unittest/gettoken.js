@@ -35,7 +35,6 @@ function createIndividualCustomer(token){
  		"CountryCode": "US",
  		"StatusCode": "2"
 		};
-		var sPostData = JSON.stringify(oPostData);
 		var requestC = request.defaults({jar: true});
         var createOptions = {
               url: config.individualCustomerurl,
@@ -45,9 +44,9 @@ function createIndividualCustomer(token){
                   "content-type": "application/json",
                   'x-csrf-token': token
               },
-              body:sPostData
+              body:oPostData
         };
-        console.log("payload sent to create individualCustomer: " + sPostData);
+        
         requestC(createOptions,function(error,response,data){
             if(error){
                 reject(error.message);
@@ -75,8 +74,7 @@ getToken().then(function(token){
 getToken().then(function(token) {
 	console.log("token received: " + token);
 	createIndividualCustomer(token).then(function(data){
-		console.log("account created: " + data);
-		printObject(data);
+		console.log("account created: " + data.CustomerID);
 	});
 });
 
