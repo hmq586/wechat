@@ -3,6 +3,7 @@ var jsSHA = require('jssha');
 var tokenValidationTool = require("../tool/tokenValidation.js");
 var echoService = require("../service/echo.js");
 var tuningService = require("../service/tuning.js");
+var createAccount = require("../service/createAccountInC4C.js");
 var getXMLNodeValue = require("../tool/xmlparse.js");
 var formattedValue = require("../tool/formatValue.js");
 var replyMessage = require("../tool/replyMessage.js");
@@ -30,6 +31,7 @@ module.exports = function (app) {
   app.route('/').post(function(req,res){
     var _da;
     // Jerry 2017-12-13 10:51AM - another way to parse request detail
+    /*
     var oReqData = req.body.xml;
     var toUserName = oReqData.ToUserName;
     var FromUserName = oReqData.FromUserName;
@@ -44,7 +46,8 @@ module.exports = function (app) {
     console.log("From user name: " + oReqData.FromUserName);
     console.log("Msg Type: " + MsgType);
     console.log("Event: " + Event);
-    console.log("Event key: " + EventKey);
+    console.log("Event key: " + EventKey); */
+
     // end
     req.on("data",function(data){
         _da = data.toString("utf-8");
@@ -67,6 +70,7 @@ module.exports = function (app) {
             var replyxml = replyMessage(_da, "Hello World by Jerry");
             // Jerry 2017-12-13 10:48PM Sean uses a Wechat post API to send reply to Wechat
             // instead of directly sending response using res API
+            createAccount();
             res.send(replyxml);
           }
           else if( event === "CLICK"){
