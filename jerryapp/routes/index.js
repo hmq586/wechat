@@ -67,7 +67,7 @@ module.exports = function (app) {
         else if( msgType === "event"){
           var event = formattedValue(getXMLNodeValue('Event',_da));
           if( event === "subscribe"){
-            var replyxml = replyMessage(_da, "Hello World by Jerry");
+            var replyxml = replyMessage(_da, "Welcome to Jerry's subscription account");
             // Jerry 2017-12-13 10:48PM Sean uses a Wechat post API to send reply to Wechat
             // instead of directly sending response using res API
             var fromUserName = formattedValue(getXMLNodeValue('FromUserName',_da));

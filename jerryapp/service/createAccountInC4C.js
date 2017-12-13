@@ -75,7 +75,6 @@ module.exports = function createAccount(fromUserName){
     var message = "account created: " + data.d.results.CustomerID;
     console.log(message);
     postWCMessage(fromUserName, message);
-
   });
 });
 
