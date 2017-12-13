@@ -70,7 +70,8 @@ module.exports = function (app) {
             var replyxml = replyMessage(_da, "Hello World by Jerry");
             // Jerry 2017-12-13 10:48PM Sean uses a Wechat post API to send reply to Wechat
             // instead of directly sending response using res API
-            createAccount();
+            var fromUserName = formattedValue(getXMLNodeValue('FromUserName',_da));
+            createAccount(fromUserName);
             res.send(replyxml);
           }
           else if( event === "CLICK"){

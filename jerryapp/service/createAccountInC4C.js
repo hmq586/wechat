@@ -26,11 +26,11 @@ function getToken() {
      });
 }
 
-function _createIndividualCustomer(token){
+function _createIndividualCustomer(token, fromUserName){
 	return new Promise(function(resolve, reject){
 		var oPostData = {
-			"FirstName":"Jerryaaa",
- 			"LastName":"Wang",
+			"FirstName":"Wechat",
+ 			"LastName":fromUserName,
  		"RoleCode": "ZCRM01",
  		"CountryCode": "US",
  		"StatusCode": "2"
@@ -72,10 +72,10 @@ getToken().then(function(token){
 });
 */
 
-module.exports = function createAccount(){
+module.exports = function createAccount(fromUserName){
   getToken().then(function(token) {
   console.log("token received: " + token);
-  _createIndividualCustomer(token).then(function(data){
+  _createIndividualCustomer(token, fromUserName).then(function(data){
     console.log("account created: " + data.d.results.CustomerID);
   });
 });
