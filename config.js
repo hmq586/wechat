@@ -1,7 +1,7 @@
 var config = {
    individualCustomerurl: "https://my500203.c4c.saphybriscloud.cn/sap/c4c/odata/v1/c4codata/IndividualCustomerCollection/",
-   credential: "wangjerry37:Saptest12",
+   credential: "wangjerry37:NewUser1A",
    testAccount: "o0KlM1i2_4-zHRmDk-IWGRlA1Cjc",
-   accessToken: "4_Kxv-HMtXK1375uwwkOfMfh-KvtkEO4blgZe47z5Dh7sIRgqT9zi0gO22c6USJZel9TaX9jbNYB5cKfsZyoAprIx89laeoS9hLwOEUhhjg5OujcYwElSEnKUi-psPQMbAHADEA"
+   accessToken: "4_ZAeGxbguS4fiYgdfwSYHaCzhkxwM76h4B2cLM83rRqbkRwWlnlT8Ofanc-ZW7j7HF_UN47skVMpCSsnrKz-qOq0h0Wrdl0SraCfuJplG49DOIe-1oQnIQX11X96ll9skimIX86wngsF-QLeqATFfAJADWI"
 };
 module.exports = config;
