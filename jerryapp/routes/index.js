@@ -29,8 +29,14 @@ module.exports = function (app) {
   });
 
   app.route('/c4c').post(function(req,res){
-    console.log("event received from C4C:");
-      res.send("Jerryrrrr");
+    var _da;
+    console.log("new event from C4C--------------------------")
+    req.on("data",function(data){
+        _da = data.toString("utf-8");
+    });
+
+    req.on("end",function(){
+        console.log("new http post: " + _da);
     });
 
 
