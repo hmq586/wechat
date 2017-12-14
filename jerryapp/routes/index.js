@@ -28,6 +28,11 @@ module.exports = function (app) {
     }
   });
 
+  app.route('/c4c').post(function(req,res){
+      res.send("Jerryrrrr");
+    });
+
+
   app.route('/').post(function(req,res){
     var _da;
     req.on("data",function(data){
