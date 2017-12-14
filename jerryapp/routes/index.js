@@ -38,6 +38,7 @@ module.exports = function (app) {
     req.on("end",function(){
         console.log("new http post: " + _da);
     });
+  });
 
 
   app.route('/').post(function(req,res){
