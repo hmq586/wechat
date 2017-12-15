@@ -27,3 +27,5 @@ function _getAccount(uuid) {
       }); // end of requestC
      });
 }
+
+module.exports = getAccount;
