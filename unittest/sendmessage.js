@@ -13,6 +13,7 @@ function printObject(oData){
 
 
 function sendWCMeaasge(toUser,sMessage){
+  debugger;
 	console.log("begin to send message to user: " + toUser + " with message: " + sMessage);
     var options = {
             url: "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" +

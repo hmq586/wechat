@@ -16,12 +16,29 @@ function getToken() {
       var requestC = request.defaults({jar: true});
       requestC(getTokenOptions,function(error,response,body){
        debugger;
+
+       printObject(body.d.results[0]);
+
+       var wechatID = body.d.results[0].wechatID;
        resolve("ok");
       }); // end of requestC
      });
 }
 
+function printObject(oData){
+  for( var a in oData){
+    console.log("key: " + a);
+    console.log("value: " + oData[a]);
+    if( typeof oData[a] === "object"){
+      printObject(oData[a]);
+    }
+  }
+}
+
+debugger;
 getToken().then(function(token) {
 	console.log("token received: " + token);
 });
+
+console.log("done");
 
