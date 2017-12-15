@@ -38,10 +38,9 @@ module.exports = function (app) {
     });
 
     req.on("end",function(){
-        console.log("new http post: " + _da);
         var payload = JSON.parse(_da);
         var AccountBOguid = payload.businessObjectId;
-        getAccount(AccountBOguid);
+        getAccount(AccountBOguid, res);
     });
   });
 

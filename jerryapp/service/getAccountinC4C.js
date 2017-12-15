@@ -1,9 +1,12 @@
 var config = require("../../config.js");
 var request = require('request');
 
-function getAccount(uuid){
+function getAccount(uuid,res){
   console.log("begin to read uuid: " + uuid);
-  _getAccount(uuid);
+  _getAccount(uuid).then(function(body){
+    console.log("body in getAccount: " + body);
+    res.send("Jerry..............");
+  });
 }
 
 function _getAccount(uuid) {
