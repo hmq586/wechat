@@ -21,6 +21,7 @@ function _getAccount(uuid) {
   };
   return new Promise(function(resolve,reject){
       var requestC = request.defaults({jar: true});
+      console.log("request with url: " + detailODataUrl);
       requestC(getOptions,function(error,response,body){
        console.log("Body: " + body);
        resolve(body);
