@@ -7,6 +7,8 @@ var createAccount = require("../service/createAccountInC4C.js");
 var getXMLNodeValue = require("../tool/xmlparse.js");
 var formattedValue = require("../tool/formatValue.js");
 var replyMessage = require("../tool/replyMessage.js");
+var config = require("../../config.js");
+var getAccount = require("../service/getAccountinC4C.js");
 
 module.exports = function (app) {
 
@@ -37,6 +39,9 @@ module.exports = function (app) {
 
     req.on("end",function(){
         console.log("new http post: " + _da);
+        var payload = JSON.parse(_da);
+        var AccountBOguid = payload.businessObjectId;
+        getAccount(AccountBOguid);
     });
   });
 
