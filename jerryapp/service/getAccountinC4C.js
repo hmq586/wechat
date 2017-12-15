@@ -19,7 +19,8 @@ function _getAccount(uuid) {
         method: "GET",
         json:true,
         headers: {
-            "content-type": "application/json"
+            "content-type": "application/json",
+            'Authorization': 'Basic ' + new Buffer(config.credential).toString('base64')
         }
   };
   return new Promise(function(resolve,reject){
