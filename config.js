@@ -3,6 +3,6 @@ var config = {
    indivudualCustomerNewurl: "https://my500203.c4c.saphybriscloud.cn/sap/c4c/odata/cust/v1/zindividualcustomer/CustomerCommonCollection?$filter=",
    credential: "wangjerry37:NewUser1A",
    testAccount: "o0KlM1i2_4-zHRmDk-IWGRlA1Cjc",
-   accessToken: "4_QzDxHJ62PB469KpMmHTUysbYUFstzLMvood9DmUjsyM0CBnOjpBDStvQFOSFBKSA0YxgM7DZkt9wJg3_Lo6Zq4WiKMLAsVAhC4SRCZtQ0O19rOBSX27QfT_cqW_OPYZbWAzsffoT0Yw6-MW3NHReAFAQKU"
+   accessToken: "4_tv6kf5ORhQqpv9KpqO6C_IC7ZTEBdCWQYOPTIXvmL0ODQPOdrsPI1-oUxGGWqOf6jp2uYVYNMPjms9_NkOV1GsBeBEi3hONdQNNd0wZjX8-fRnz-jklY-myVr568pYWSpNYhHrg3qLpBmpsFGPDeAEAXGU"
 };
 module.exports = config;

@@ -1,11 +1,12 @@
 var config = require("../../config.js");
+var sendMessage = require("./postMessageToUser.js");
 var request = require('request');
 
-function getAccount(uuid,res){
+function notifyWechatUser(uuid,res){
   console.log("begin to read uuid: " + uuid);
-  _getAccount(uuid).then(function(body){
-    console.log("body in getAccount: " + body);
-    res.send("Jerry..............");
+  _getAccount(uuid).then(function(wechatID){
+    res.status(200).end();
+    sendMessage(wechatID, "Dear user, A kind reminder: your C4C account is changed in the system.");
   });
 }
 
@@ -27,10 +28,11 @@ function _getAccount(uuid) {
       var requestC = request.defaults({jar: true});
       console.log("request with url: " + detailODataUrl);
       requestC(getOptions,function(error,response,body){
-       console.log("Body: " + body);
-       resolve(body);
+              var wechatID = body.d.results[0].WechatID;
+              console.log("wechat id: " + wechatID);
+              resolve(wechatID);
       }); // end of requestC
      });
 }
 
-module.exports = getAccount;
+module.exports = notifyWechatUser;

@@ -8,7 +8,7 @@ var getXMLNodeValue = require("../tool/xmlparse.js");
 var formattedValue = require("../tool/formatValue.js");
 var replyMessage = require("../tool/replyMessage.js");
 var config = require("../../config.js");
-var getAccount = require("../service/getAccountinC4C.js");
+var notifyWechatUser = require("../service/getAccountinC4C.js");
 
 module.exports = function (app) {
 
@@ -40,7 +40,7 @@ module.exports = function (app) {
     req.on("end",function(){
         var payload = JSON.parse(_da);
         var AccountBOguid = payload.businessObjectId;
-        getAccount(AccountBOguid, res);
+        notifyWechatUser(AccountBOguid, res);
     });
   });
 
