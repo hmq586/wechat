@@ -1,34 +1,22 @@
 {
-	"_version": "1.1.0",
+	"_version": "1.5.0",
 	"sap.app": {
-		"_version": "1.1.0",
-		"id": "TestDemo",
+		"id": "jerrylist",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "",
-		"description": "",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
 		"resources": "resources.json",
 		"ach": "ach",
 		"sourceTemplate": {
-			"id": "servicecatalog.connectivityComponent",
-			"version": "0.0.0"
-		},
-		"dataSources": {
-			"mainService": {
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
-				},
-				"uri": "localService/metadata.xml"
-			}
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
 		}
 	},
 	"sap.ui": {
-		"_version": "1.1.0",
 		"technology": "UI5",
 		"icons": {
 			"icon": "",
@@ -43,20 +31,26 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
 	},
 	"sap.ui5": {
-		"_version": "1.1.0",
 		"rootView": {
-			"viewName": "TestDemo.view.View1",
-			"type": "XML"
+			"viewName": "jerrylist.view.App",
+			"type": "JS"
 		},
 		"dependencies": {
 			"minUI5Version": "1.30.0",
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
-				"sap.ui.layout": {}
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
 			}
 		},
 		"contentDensities": {
@@ -67,17 +61,20 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "TestDemo.i18n.i18n"
+					"bundleName": "jerrylist.i18n.i18n"
 				}
-			},
-			"": {
-				"dataSource": "mainService"
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }

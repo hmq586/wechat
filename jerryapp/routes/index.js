@@ -96,9 +96,9 @@ module.exports = function (app) {
                             "name": "创建账户",
                             "key": "dataCreate"
                        },{
-                            "type": "click",
+                            "type": "view",
                             "name": "查询账户",
-                             "key": "dataQuery"
+                             "url":"http://www.baidu.com/"
                        }]
                      },
                      {

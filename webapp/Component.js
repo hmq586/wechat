@@ -1,11 +1,12 @@
+/*eslint linebreak-style: ["error", "unix"]*/
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"TestDemo/model/models"
+	"jerrylist/model/models"
 ], function(UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("TestDemo.Component", {
+	return UIComponent.extend("jerrylist.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -17,12 +18,11 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function() {
-			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+			var oModel = new sap.ui.model.json.JSONModel(jQuery.sap.getModulePath("jerrylist.model","/mock.json"));
+			this.setModel(oModel);
 		}
 	});
-
 });
