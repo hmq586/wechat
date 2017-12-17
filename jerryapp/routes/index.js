@@ -30,6 +30,15 @@ module.exports = function (app) {
     }
   });
 
+  app.route("/tokenCallback").get(function(req,res){
+    if( req.query && req.query.code) {
+      res.send(req.query.code);
+    }
+    else{
+      res.send("no code");
+    }
+  });
+
   app.route('/c4c').post(function(req,res){
     var _da;
     console.log("new event from C4C--------------------------")
