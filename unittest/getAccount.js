@@ -1,5 +1,6 @@
 var config = require("../config.js");
 var request = require('request');
+var sendMessage = require("../jerryapp/service/postMessageToUser.js");
 
 var getTokenOptions = {
         url: "https://my500203.c4c.saphybriscloud.cn/sap/c4c/odata/cust/v1/zindividualcustomer/CustomerCommonCollection?$filter=ParentObjectID%20eq%20%2700163E20C9511EE7B8975BD4AB3F60C0%27",
@@ -19,7 +20,9 @@ function getToken() {
 
        printObject(body.d.results[0]);
 
-       var wechatID = body.d.results[0].wechatID;
+       var wechatID = body.d.results[0].WechatID;
+       console.log("wechat id: " + wechatID);
+       sendMessage(wechatID, "Hello from Jerry");
        resolve("ok");
       }); // end of requestC
      });
