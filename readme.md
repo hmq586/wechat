@@ -18,3 +18,7 @@ Nodejs执行结果和浏览器里结果不一样。。。
 
 网页授权获取用户基本信息: 订阅号无法开通此接口, 服务号必须通过微信认证
 可以使用测试公众号.
+
+# 2017-12-17 2:47PM
+
+download PHP plugin in home: disable proxy in Eclipse
