@@ -23,3 +23,5 @@ Nodejs执行结果和浏览器里结果不一样。。。
 
 download PHP plugin in home: disable proxy in Eclipse
 http://localhost:8098/jerrytest.php?code=Swim - 相当于这个php page就是一个code的接收器。
+
+http://download.eclipse.org/tools/pdt/updates/5.0
