@@ -35,7 +35,7 @@ module.exports = function (app) {
       // req.query.code is code retrieve
       // res.send(req.query.code);
       console.log("*********Jerry code: " + req.query.code);
-      res.redirect('https://wechatjerry.herokuapp.com/ui5/');
+      res.redirect('https://wechatjerry.herokuapp.com/ui5?aaa=req.query.code');
       //
     }
     else{
