@@ -82,8 +82,7 @@ module.exports = function (app) {
             res.send(replyxml);
           }
           else if( event === "CLICK"){
-            var reply = "HeaderO" + "\n" + "<a href=\"https://www.baidu.com\">点击这里体验</a>"
-            + "\n" + "Jerry";
+            var reply = "HeaderO<a href=\"https://www.baidu.com\">点击这里体验</a>";
 
             var eventtext = replyMessage(_da, reply);
             res.send(eventtext);
