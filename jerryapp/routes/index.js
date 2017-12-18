@@ -90,7 +90,7 @@ module.exports = function (app) {
             // <a href="http://www.baidu.com">百度</a>
             var redirect = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx73b49bfe02fd3a17&redirect_uri=https://wechatjerry.herokuapp.com/tokenCallback&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
             var reply = "&lt;a href=&quot;" + 
-            "http://www.2345.com/?k381740148" + "&quot;&gt;" + "这是1个超链接" + "&lt;" + "/a" + "&gt;";
+            redirect + "&quot;&gt;" + "Redirect test" + "&lt;" + "/a" + "&gt;";
 
             var eventtext = replyMessage(_da, reply);
             res.send(eventtext);
