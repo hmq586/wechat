@@ -82,7 +82,14 @@ module.exports = function (app) {
             res.send(replyxml);
           }
           else if( event === "CLICK"){
-            var reply = "&lt;a href=&quot;http://www.2345.com/?k381740148&quot;&gt;这是个超链接&lt;/a&gt;";
+            /*
+            &lt;   <
+            &gt;   >
+            &quot; :
+            */
+            // <a href="http://www.baidu.com">百度</a>
+            var reply = "&lt;a href=&quot;" + 
+            "http://www.2345.com/?k381740148" + "&quot;&gt;" + "这是1个超链接" + "&lt;" + "/a" + "&gt;";
 
             var eventtext = replyMessage(_da, reply);
             res.send(eventtext);
