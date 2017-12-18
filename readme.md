@@ -26,6 +26,10 @@ http://localhost:8098/jerrytest.php?code=Swim - 相当于这个php page就是一
 
 http://download.eclipse.org/tools/pdt/updates/5.0
 
+# 2017-12-18 6:57PM
+
+could not directly reply html page in wechat.
+
 # API
 
 * Jerry test account get access token: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx73b49bfe02fd3a17&secret=8a269a9916c32069901c2e6b6f3f16a6
