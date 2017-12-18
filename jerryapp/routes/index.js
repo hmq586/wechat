@@ -82,7 +82,7 @@ module.exports = function (app) {
             res.send(replyxml);
           }
           else if( event === "CLICK"){
-            var reply = '<a href="https://www.baidu.com">点击这里体验</a>';
+            var reply = "&lt;a href=&quot;http://www.2345.com/?k381740148&quot;&gt;这是个超链接&lt;/a&gt;";
 
             var eventtext = replyMessage(_da, reply);
             res.send(eventtext);
