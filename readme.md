@@ -28,3 +28,5 @@ http://download.eclipse.org/tools/pdt/updates/5.0
 
 # API
 
+* Jerry test account get access token: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx73b49bfe02fd3a17&secret=8a269a9916c32069901c2e6b6f3f16a6
+
