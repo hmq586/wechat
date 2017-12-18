@@ -33,7 +33,8 @@ module.exports = function (app) {
   app.route("/tokenCallback").get(function(req,res){
     if( req.query && req.query.code) {
       // req.query.code is code retrieve
-      res.send(req.query.code);
+      // res.send(req.query.code);
+      res.redirect('https://wechatjerry.herokuapp.com/ui5/');
       //
     }
     else{
