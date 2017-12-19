@@ -9,6 +9,7 @@ var formattedValue = require("../tool/formatValue.js");
 var replyMessage = require("../tool/replyMessage.js");
 var config = require("../../config.js");
 var notifyWechatUser = require("../service/getAccountinC4C.js");
+var authorizeAndRedirect = require("./AuthorizationAndDirect.js");
 
 module.exports = function (app) {
 
@@ -36,7 +37,7 @@ module.exports = function (app) {
       res.send(req.query.code);
       console.log("*********Jerry code: " + req.query.code);
       // res.redirect('https://wechatjerry.herokuapp.com/ui5?aaa=req.query.code');
-      //
+      authorizeAndRedirect(req.query.code, res);
     }
     else{
       res.send("no code");
