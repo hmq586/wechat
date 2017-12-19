@@ -44,7 +44,7 @@ function getAccessToken(code) {
 function getUserinfo(tokenResponse, res){
     console.log("access token: " + tokenResponse.access_token);
     var userinfourl = "https://api.weixin.qq.com/sns/userinfo?access_token="
-    + access_token + "&openid=" + tokenResponse.openid;
+    + tokenResponse.access_token + "&openid=" + tokenResponse.openid;
 
   console.log("url sent for user info read: " + userinfourl);
 
