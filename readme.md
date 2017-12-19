@@ -35,6 +35,8 @@ url复制到微信里手动能够打开： https://open.weixin.qq.com/connect/oa
 <Page title="{i18n>MasterTitle}" >
 	{modelForview>MasterTitle}
 
+UnhandledPromiseRejectionWarning: Unhandled promise rejection
+
 # API
 
 * Jerry test account get access token: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx73b49bfe02fd3a17&secret=8a269a9916c32069901c2e6b6f3f16a6
