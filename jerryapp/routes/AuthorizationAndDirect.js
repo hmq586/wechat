@@ -36,15 +36,15 @@ function getAccessToken(code) {
           reject({message: error});
           return;
        }
-      resolve(body.access_token);
+      resolve(body);
       }); // end of requestC
      });
 } 
 
-function getUserinfo(access_token, res){
-    console.log("access token: " + access_token);
+function getUserinfo(tokenResponse, res){
+    console.log("access token: " + tokenResponse.access_token);
     var userinfourl = "https://api.weixin.qq.com/sns/userinfo?access_token="
-    + access_token + "&openid=" + config.testAccount;
+    + access_token + "&openid=" + tokenResponse.openid;
 
   console.log("url sent for user info read: " + userinfourl);
 
@@ -73,7 +73,7 @@ function getUserinfo(access_token, res){
 }
 
 module.exports = function(code, res){
-	getAccessToken(code).then(function(access_token) {
-  		getUserinfo(access_token, res);
+	getAccessToken(code).then(function(tokenResponse) {
+  		getUserinfo(tokenResponse, res);
 	});
 };
