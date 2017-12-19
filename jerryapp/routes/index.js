@@ -10,7 +10,7 @@ var replyMessage = require("../tool/replyMessage.js");
 var config = require("../../config.js");
 var notifyWechatUser = require("../service/getAccountinC4C.js");
 var authorizeAndRedirect = require("./AuthorizationAndDirect.js");
-
+var printObject = require("../tool/printObject.js");
 module.exports = function (app) {
 
   app.all('*', function(req, res, next) {
@@ -27,6 +27,7 @@ module.exports = function (app) {
       tokenValidationTool(req, res);
     }
     else{
+      printObject(process);
       res.send("Hello World");
     }
   });
