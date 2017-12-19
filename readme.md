@@ -29,7 +29,10 @@ http://download.eclipse.org/tools/pdt/updates/5.0
 # 2017-12-18 6:57PM
 
 could not directly reply html page in wechat.
-url复制到微信里手动能够打开： https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx73b49bfe02fd3a17&redirect_uri=https://wechatjerry.herokuapp.com/tokenCallback&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect
+url复制到微信里手动能够打开： 
+
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx73b49bfe02fd3a17&redirect_uri=https://wechatjerry.herokuapp.com/tokenCallback&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect
+
 授权后重定向的回调链接地址， 请使用 urlEncode 对链接进行处理
 
 <Page title="{i18n>MasterTitle}" >
