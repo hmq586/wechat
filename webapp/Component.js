@@ -24,8 +24,10 @@ sap.ui.define([
 			var oModel = new sap.ui.model.json.JSONModel(jQuery.sap.getModulePath("jerrylist.model","/mock.json"));
 			this.setModel(oModel);
 
-			var oTitleModel = new sap.ui.model.json.JSONModel({"MasterTitle": "i042416"});
-			debugger;
+			var nickName = jQuery.sap.getUriParameters().get("nickname");
+
+			var newTitleName = nickname + "'s Service Order";
+			var oTitleModel = new sap.ui.model.json.JSONModel({"MasterTitle": newTitleName });
 			this.setModel(oTitleModel,"modelForview");
 
 		}

@@ -13,7 +13,6 @@ function printObject(oData){
 }
 
 function getAccessToken(code) {
-  // var code = "021ox6wv1UIax90AuJuv1V18wv1ox6wP";
 
   var url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + 
   config.testAccountAppid + "&secret=" + config.testAccountSecret + "&code=" + code + "&grant_type=authorization_code";
@@ -66,9 +65,9 @@ function getUserinfo(access_token, res){
           reject({message: error});
           return;
        }
-        printObject(body); // nickname
         console.log("nickname retrieved: " + body.nickname);
-        res.redirect("https://wechatjerry.herokuapp.com/ui5?aaa=bbb");
+        var url = "https://wechatjerry.herokuapp.com/ui5?nickname=" + body.nickname;
+        res.redirect(url);
       }); // end of requestC
      });
 }
