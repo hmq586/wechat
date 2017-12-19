@@ -33,7 +33,6 @@ module.exports = function (app) {
 
   app.route("/tokenCallback").get(function(req,res){
     if( req.query && req.query.code) {
-      console.log("*********Jerry code: " + req.query.code);
       authorizeAndRedirect(req.query.code, res);
     }
     else{
@@ -93,7 +92,7 @@ module.exports = function (app) {
             // <a href="http://www.baidu.com">百度</a>
             var redirect = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx73b49bfe02fd3a17&amp;redirect_uri=https://wechatjerry.herokuapp.com/tokenCallback&amp;response_type=code&amp;scope=snsapi_userinfo&amp;state=1#wechat_redirect";
             var reply = "&lt;a href=&quot;" + 
-            encodeURI(redirect) + "&quot;&gt;" + "Redirect test" + "&lt;" + "/a" + "&gt;";
+            encodeURI(redirect) + "&quot;&gt;" + "OAuth2 test to read User info in 3rd application" + "&lt;" + "/a" + "&gt;";
             console.log("************* Redirect content to send: " + reply);
             var eventtext = replyMessage(_da, reply);
             res.send(eventtext);
