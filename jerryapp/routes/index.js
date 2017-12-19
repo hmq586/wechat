@@ -27,6 +27,10 @@ module.exports = function (app) {
       tokenValidationTool(req, res);
     }
     else{
+      // printObject(process);
+
+      var client = require('redis').createClient(process.env.REDIS_URL);
+      console.log("*************** redis instance *****************");
       printObject(process);
       res.send("Hello World");
     }
