@@ -13,7 +13,7 @@ function printObject(oData){
 }
 
 function getAccessToken() {
-  var code = "081zOWZF1BypQ10m2Y0G1jqXZF1zOWZR";
+  var code = "021ox6wv1UIax90AuJuv1V18wv1ox6wP";
 
   var url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + 
   config.testAccountAppid + "&secret=" + config.testAccountSecret + "&code=" + code + "&grant_type=authorization_code";
@@ -45,6 +45,31 @@ function getAccessToken() {
 
 function getUserinfo(access_token){
     console.log("access token: " + access_token);
+    var userinfourl = "https://api.weixin.qq.com/sns/userinfo?access_token="
+    + access_token + "&openid=" + config.testAccount;
+
+  console.log("url sent: " + userinfourl);
+
+  var userOptions = {
+        url: userinfourl,
+        method: "GET",
+        json:true,
+        headers: {
+            "content-type": "application/json"
+        }
+  };
+
+  return new Promise(function(resolve,reject){
+      var requestC = request.defaults({jar: true});
+      requestC(userOptions,function(error,response,body){
+       if(error){
+          console.log("in reject: " + error);
+          reject({message: error});
+          return;
+       }
+        printObject(body);
+      }); // end of requestC
+     });
 }
 
 getAccessToken().then(function(access_token) {
