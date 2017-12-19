@@ -67,7 +67,7 @@ function getUserinfo(access_token){
           reject({message: error});
           return;
        }
-        printObject(body);
+        printObject(body); // nickname
       }); // end of requestC
      });
 }
