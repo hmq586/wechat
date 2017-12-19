@@ -26,7 +26,7 @@ sap.ui.define([
 
 			var nickName = jQuery.sap.getUriParameters().get("nickname");
 
-			var newTitleName = nickname + "'s Service Order";
+			var newTitleName = nickName + "'s Service Order";
 			var oTitleModel = new sap.ui.model.json.JSONModel({"MasterTitle": newTitleName });
 			this.setModel(oTitleModel,"modelForview");
 
