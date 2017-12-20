@@ -24,9 +24,6 @@ function clearList(sOpenId){
 }
 
 function getListContent(sOpenId){
-	/*client.lrange(sOpenId, 0, -1, function(err, reply) {
-    	console.log("content for list: " + sOpenId + " **********: " + reply);
-	});*/
 
 	return new Promise(function(resolve,reject){
 		client.lrange(sOpenId, 0, -1, function(err, reply) {

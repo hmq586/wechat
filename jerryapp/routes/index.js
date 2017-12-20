@@ -11,8 +11,9 @@ var config = require("../../config.js");
 var notifyWechatUser = require("../service/getAccountinC4C.js");
 var authorizeAndRedirect = require("./AuthorizationAndDirect.js");
 var printObject = require("../tool/printObject.js");
-var conversationLogService = require("../service/conversationLogService.js");
-
+if( config.useRedis ){ 
+  var conversationLogService = require("../service/conversationLogService.js");
+}
 module.exports = function (app) {
 
   app.all('*', function(req, res, next) {
