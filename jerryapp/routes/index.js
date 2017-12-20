@@ -115,10 +115,11 @@ module.exports = function (app) {
               });
           }
           else if( eventKey === "delete"){
-            conversationLogService.deleteLog(toUserId).then(
+            res.send("fuck");
+            /*conversationLogService.deleteLog(toUserId).then(
               function(reply){
                 res.send("conversation log deleted successfully");
-              });
+              });*/
           }
         }
     });
