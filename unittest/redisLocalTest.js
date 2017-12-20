@@ -6,6 +6,20 @@ client.on("error", function (err) {
 });
 
 client.set("some key", "i042416");
+
+client.lpush('list', 'key_0');
+client.lpush('list', 'key_1');
+
+// 下标(index)参数 start 和 stop 都以 0 为底，也就是说，以 0 表示列表的第一个元素，以 1 表示列表的第二个元素，以此类推。
+// 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。
+client.lrange('list', '0', '-1', function(error, res){
+            if(error) {
+                console.log(error);
+            } else {
+                console.log("res:" + res);
+            }
+});
+
 client.get("some key", function(err, reply) {
     // reply is null when the key is missing
     console.log("Jerry Redis practice: ******************** " + reply);
@@ -14,7 +28,3 @@ client.get("some key", function(err, reply) {
 });
 
 
-/*
-client.lpush('list', 'key_0');
-        client.lpush('list', 'key_1');
-        */
