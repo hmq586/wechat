@@ -1,4 +1,4 @@
-var redis = require("redis"),
+/*var redis = require("redis"),
     client = redis.createClient("redis://h:p99a8dd0d92871b9ffe7a026e6d70beecd7f2a0e743fa1e2840a58ce048f41c4a@ec2-34-237-158-248.compute-1.amazonaws.com:9479"); // by default localhost will be used!!
 
 client.on("error", function (err) {
@@ -37,5 +37,13 @@ client.del('list', function(error, count){
     console.log("del ok, reply: " + count); // Jerry: this is actually reply: OK
     client.end(true);
 });
+*/
+
+var client = require("../jerryapp/service/redisClient.js");
+
+client.insert("jerry", "content");
+
+client.getList("jerry");
+
 
 
