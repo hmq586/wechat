@@ -49,3 +49,6 @@ UnhandledPromiseRejectionWarning: Unhandled promise rejection
 
 * Jerry test account get access token: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx73b49bfe02fd3a17&secret=8a269a9916c32069901c2e6b6f3f16a6
 
+* delete custom menu: 
+
+https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=5_g-u6YuCk3xqfHILzYrK4dOCWPaEwUqafiYH-ZfV5YTlDqg59R32zC2MeBTaspJRSTcVvr49d3jrlxwLMefZIwoBuZfaDfwT5sMQBijv7qSW0tSQKfyugEOqght6VNUasu7N48zfrY-spq9UTZBMcAGAHJU
