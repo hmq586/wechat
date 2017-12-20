@@ -113,7 +113,7 @@ module.exports = function (app) {
                 var replyString = replyMessage(_da, logString);
                 res.send(replyString);
               }).catch(function(reason){
-                var emptyString = "";
+                var emptyString = replyMessage(_da, reason);
                 res.send(emptyString);
               });
           }

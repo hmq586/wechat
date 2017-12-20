@@ -34,6 +34,7 @@ function getListContent(sOpenId){
     		var content = reply;
     		if( content == ""){
     			content = "no conversation log found.";
+                console.log("reject content: " + content);
                 reject(content);
     		}
             else {
