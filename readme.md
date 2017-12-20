@@ -1,3 +1,19 @@
+# This repo is for my SCN blog series
+
+* [Wechat development series 1 – setup your development environment](https://blogs.sap.com/2017/12/10/wechat-development-series-1-setup-your-development-environment/)
+
+* [Wechat development series 2 – development Q&A service using nodejs](https://blogs.sap.com/2017/12/10/wechat-development-series-2-development-qa-service-using-nodejs/)
+
+* [Wechat development series 3 – Trigger C4C Account creation in Wechat app](https://blogs.sap.com/2017/12/13/wechat-development-series-3-trigger-c4c-account-creation-in-wechat-app/)
+
+* [Wechat development series 4 – Send C4C Data change notification to Wechat app](https://blogs.sap.com/2017/12/15/wechat-development-series-4-send-c4c-data-change-notification-to-wechat-app/)
+
+* [Wechat development series 5 - embedded your UI5 application to Wechat app](https://blogs.sap.com/2017/12/17/wechat-development-series-5-embedded-your-ui5-application-to-wechat-app/)
+
+* [Wechat development series 6 – Retrieve Wechat User info via oAuth2 and display it in UI5 application](https://blogs.sap.com/2017/12/19/wechat-development-series-6-retrieve-wechat-user-info-via-oauth2-and-display-it-in-ui5-application/)
+
+* [Wechat development series 7 – use Redis to store Wechat conversation history](https://blogs.sap.com/2017/12/20/wechat-development-series-7-use-redis-to-store-wechat-conversation-history/)
+
 # 2017-12-09
 
 Express: Web 应用程序框架
