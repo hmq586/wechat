@@ -49,9 +49,9 @@ function formatToWechat(raw){
     var result = "";
     var logs = JSON.parse(formatted);
     for( var i = 0; i < logs.length; i++){
-        var record = "record[" + i + "]:" + " from: " + logs[i].from
-         + " to: " + logs[i].to + " question: " + logs[i].question
-        + " answer: " + logs[i].answer;
+        var record = "record[" + i + "]:" + " [[from]] " + logs[i].from
+         + " [[to]] " + logs[i].to + " [[question]] " + logs[i].question
+        + " [[answer]] " + logs[i].answer;
         if( i === 0){
             result = record;
         }
