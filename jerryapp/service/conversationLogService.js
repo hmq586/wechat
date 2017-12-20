@@ -26,9 +26,14 @@ function getList(sToUserOpenId){
 	return redisClient.getList(sToUserOpenId);
 }
 
+function deleteLog(sToUserOpenId){
+	redisClient.clearList(sToUserOpenId);
+}
+
 var oService = {
 	log: logConversation,
-	getLog: getList 
+	getLog: getList,
+	deleteLog: deleteLog
 }
 
 module.exports = oService;

@@ -82,6 +82,7 @@ module.exports = function (app) {
           var eventKey = formattedValue(getXMLNodeValue('EventKey',_da));
           console.log("event: " + event + " event key: " + eventKey);
           var fromUserName = formattedValue(getXMLNodeValue('FromUserName',_da));
+          var toUserId = formattedValue(getXMLNodeValue('ToUserName',_da));
           if( event === "subscribe"){
             var replyxml = replyMessage(_da, "Welcome to Jerry's subscription account");
             // Jerry 2017-12-13 10:48PM Sean uses a Wechat post API to send reply to Wechat
@@ -106,12 +107,16 @@ module.exports = function (app) {
           }
 
           else if( eventKey === "review"){
-            var toUserId = formattedValue(getXMLNodeValue('ToUserName',_da));
+            
             conversationLogService.getLog(toUserId).then(
               function(logString){
                 var replyString = replyMessage(_da, logString);
                 res.send(replyString);
               });
+          }
+          else if( eventKey === "delete"){
+            conversationLogService.deleteLog(toUserId);
+            res.send("conversation log deleted successfully");
           }
         }
     });
