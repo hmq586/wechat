@@ -20,6 +20,10 @@ client.lrange('list', '0', '-1', function(error, res){
             }
 });
 
+client.llen('list', function(error, count){
+	console.log("total size: " + count);
+});
+
 client.get("some key", function(err, reply) {
     // reply is null when the key is missing
     console.log("Jerry Redis practice: ******************** " + reply);
