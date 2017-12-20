@@ -16,8 +16,9 @@ function clearList(sOpenId){
         		console.log("error when clear list:" + error);
         		reject(error);
     		}
-    		console.log("list clear successfully: " + count);
-    		resolve(count); 
+    		var reply = "list clear successfully";
+    		console.log(reply);
+    		resolve(reply); 
 		});
 	});
 }
