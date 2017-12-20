@@ -7,8 +7,14 @@ var app = express();
 app.use('/ui5', express.static(process.cwd() + '/webapp'));
 routesEngine(app);
 
+console.log("play around with redis ******************************");
+
 var redis = require("redis"),
     client = redis.createClient();
+
+client.on("error", function (err) {
+    console.log("Redis failed! Error " + err);
+});
 
 client.set("some key", "i042416");
 client.get("some key", function(err, reply) {
