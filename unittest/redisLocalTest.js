@@ -9,4 +9,12 @@ client.set("some key", "i042416");
 client.get("some key", function(err, reply) {
     // reply is null when the key is missing
     console.log("Jerry Redis practice: ******************** " + reply);
+    console.log("end DB!");
+	client.end(true);
 });
+
+
+/*
+client.lpush('list', 'key_0');
+        client.lpush('list', 'key_1');
+        */
