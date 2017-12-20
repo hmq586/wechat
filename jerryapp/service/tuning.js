@@ -18,7 +18,7 @@ module.exports = function(wholecontent, question, res){
   if(data){
      var text = JSON.parse(data).text;
      console.log("TUNING, question: " + question + " answer: " + text);
-     conversationLogService(wholecontent, question, text);
+     conversationLogService.log(wholecontent, question, text);
      var xml = replyMessage(wholecontent, text);
      res.send(xml);
   } else {

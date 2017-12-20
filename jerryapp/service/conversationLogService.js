@@ -22,4 +22,13 @@ function objectToString(fromUserName, toUserName, question, answer){
 	return JSON.stringify(record); 
 }
 
-module.exports = logConversation;
+function getList(sToUserOpenId){
+	return redisClient.getListContent(sToUserOpenId);
+}
+
+var oService = {
+	log: logConversation,
+	getLog: getList 
+}
+
+module.exports = oService;

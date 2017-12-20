@@ -11,6 +11,8 @@ var config = require("../../config.js");
 var notifyWechatUser = require("../service/getAccountinC4C.js");
 var authorizeAndRedirect = require("./AuthorizationAndDirect.js");
 var printObject = require("../tool/printObject.js");
+var conversationLogService = require("../service/conversationLogService.js");
+
 module.exports = function (app) {
 
   app.all('*', function(req, res, next) {
@@ -27,8 +29,6 @@ module.exports = function (app) {
       tokenValidationTool(req, res);
     }
     else{
-      // printObject(process);
-
       var client = require('redis').createClient(process.env.REDIS_URL);
       console.log("*************** redis instance *****************");
       printObject(process);
@@ -79,15 +79,16 @@ module.exports = function (app) {
         }
         else if( msgType === "event"){
           var event = formattedValue(getXMLNodeValue('Event',_da));
+          var eventKey = formattedValue(getXMLNodeValue('EventKey',_da));
+          var fromUserName = formattedValue(getXMLNodeValue('FromUserName',_da));
           if( event === "subscribe"){
             var replyxml = replyMessage(_da, "Welcome to Jerry's subscription account");
             // Jerry 2017-12-13 10:48PM Sean uses a Wechat post API to send reply to Wechat
             // instead of directly sending response using res API
-            var fromUserName = formattedValue(getXMLNodeValue('FromUserName',_da));
             createAccount(fromUserName);
             res.send(replyxml);
           }
-          else if( event === "CLICK"){
+          else if( eventKey === "dataQuery"){
             /*
             &lt;   <
             &gt;   >
@@ -101,7 +102,12 @@ module.exports = function (app) {
             console.log("************* Redirect content to send: " + reply);
             var eventtext = replyMessage(_da, reply);
             res.send(eventtext);
-          };
+          }
+
+          else if( eventKey === "review"){
+            
+            res.send("conversation log");
+          }
         }
     });
   });

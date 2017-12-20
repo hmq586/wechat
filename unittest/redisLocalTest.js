@@ -41,14 +41,8 @@ client.del('list', function(error, count){
 
 var client = require("../jerryapp/service/redisClient.js");
 
-var obj = {
-    name: "Jerry",
-    value: "abap"
-};
 
-client.insert("jerry", obj);
-
-client.getList("jerry").then(function(content){
+client.getList("gh_106591ffb8a3").then(function(content){
     console.log("Jerry content: " + content);
 });
 
