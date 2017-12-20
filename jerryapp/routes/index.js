@@ -80,6 +80,7 @@ module.exports = function (app) {
         else if( msgType === "event"){
           var event = formattedValue(getXMLNodeValue('Event',_da));
           var eventKey = formattedValue(getXMLNodeValue('EventKey',_da));
+          console.log("event: " + event + " event key: " + eventKey);
           var fromUserName = formattedValue(getXMLNodeValue('FromUserName',_da));
           if( event === "subscribe"){
             var replyxml = replyMessage(_da, "Welcome to Jerry's subscription account");
@@ -105,7 +106,8 @@ module.exports = function (app) {
           }
 
           else if( eventKey === "review"){
-            
+            var toUserId = formattedValue(getXMLNodeValue('ToUserName',_da));
+            var logToReply = conversationLogService.getList(toUserId);
             res.send("conversation log");
           }
         }
