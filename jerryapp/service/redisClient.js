@@ -10,7 +10,7 @@ function insertIntoList(sOpenId, oElement){
 }
 
 function clearList(sOpenId){
-	return Promise(function(resolve,reject){
+	return new Promise(function(resolve,reject){
 		client.del(sOpenId, function(error, count){
     		if(error){
         		console.log("error when clear list:" + error);
@@ -30,7 +30,10 @@ function getListContent(sOpenId){
 	return new Promise(function(resolve,reject){
 		client.lrange(sOpenId, 0, -1, function(err, reply) {
     		console.log("content for list: " + sOpenId + " **********: " + reply);
-    		var content = reply || "no conversation log found.";
+    		var content = reply;
+    		if( !!!content ){
+    			content = "no conversation log found.";
+    		}
     		resolve(content);
 		});
      });
