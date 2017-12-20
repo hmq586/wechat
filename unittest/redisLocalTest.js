@@ -27,8 +27,15 @@ client.llen('list', function(error, count){
 client.get("some key", function(err, reply) {
     // reply is null when the key is missing
     console.log("Jerry Redis practice: ******************** " + reply);
-    console.log("end DB!");
-	client.end(true);
+});
+
+
+client.del('list', function(error, count){
+    if(error){
+        console.log("error when del:" + error);
+    }
+    console.log("del ok, reply: " + count); // Jerry: this is actually reply: OK
+    client.end(true);
 });
 
 
