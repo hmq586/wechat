@@ -107,7 +107,7 @@ module.exports = function (app) {
 
           else if( eventKey === "review"){
             var toUserId = formattedValue(getXMLNodeValue('ToUserName',_da));
-            var logToReply = conversationLogService.getList(toUserId);
+            var logToReply = conversationLogService.getLog(toUserId);
             res.send("conversation log");
           }
         }
