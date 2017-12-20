@@ -26,7 +26,8 @@ function getListContent(sOpenId){
 	return new Promise(function(resolve,reject){
 		client.lrange(sOpenId, 0, -1, function(err, reply) {
     		console.log("content for list: " + sOpenId + " **********: " + reply);
-    		resolve(reply);
+    		var content = reply || "no conversation log found.";
+    		resolve(content);
 		});
      });
 }
