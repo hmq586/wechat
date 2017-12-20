@@ -23,7 +23,7 @@ function objectToString(fromUserName, toUserName, question, answer){
 }
 
 function getList(sToUserOpenId){
-	return redisClient.getListContent(sToUserOpenId);
+	return redisClient.getList(sToUserOpenId);
 }
 
 var oService = {
