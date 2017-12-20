@@ -34,8 +34,11 @@ function getListContent(sOpenId){
     		var content = reply;
     		if( content == ""){
     			content = "no conversation log found.";
+                reject(content);
     		}
-    		resolve(content);
+            else {
+    		  resolve(content);
+            }
 		});
      });
 }

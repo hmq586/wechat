@@ -112,6 +112,9 @@ module.exports = function (app) {
               function(logString){
                 var replyString = replyMessage(_da, logString);
                 res.send(replyString);
+              }).catch(function(reason){
+                var emptyString = "";
+                res.send(emptyString);
               });
           }
           else if( eventKey === "delete"){
