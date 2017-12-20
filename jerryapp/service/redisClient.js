@@ -56,7 +56,7 @@ function formatToWechat(raw){
             result = record;
         }
         else{
-            result = result + "\n" + record;
+            result = result + "\n" + "\n" + record;
         }
     }
     return result;
