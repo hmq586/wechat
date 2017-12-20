@@ -43,7 +43,11 @@ var client = require("../jerryapp/service/redisClient.js");
 
 client.insert("jerry", "content");
 
-client.getList("jerry");
+client.getList("jerry").then(function(content){
+    console.log("Jerry content: " + content);
+});
+
+
 
 
 
