@@ -117,7 +117,7 @@ module.exports = function (app) {
           else if( eventKey === "delete"){
             conversationLogService.deleteLog(toUserId).then(
               function(reply){
-                var deleteReply = replyMessage(_da, reply);
+                var deleteReply = replyMessage(_da, "Conversation log deleted successfully");
                 res.send(deleteReply);
               });
           }
@@ -167,25 +167,5 @@ module.exports = function (app) {
       console.log("error: " + error);
       console.log("data: " + data);
     });
-  });
-
-  app.route('/test').get(function (req, res) {
-        var url = "https://www.baidu.com";
-        console.log('/:' + url);
-        // res.send("Hello");
-        // Jerry 2017-12-9 11:04AM - no proxy works under normal network environment
-          var options = {
-            //url: "http://www.tuling123.com/openapi/api?key=de4ae9269c7438c33de5806562a35cac&info=%E6%88%90%E9%83%BD%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5",
-            url: "http://www.tuling123.com/openapi/api?key=成都天气预报",
-            method: "GET"
-          };
-          request(options,function(error,response,data){
-            if(data){
-              res.send(data);
-            }else {
-              res.send("Jerry error: " + error);
-              console.log(error);
-            }
-          });
-        });  
+  }); 
 };

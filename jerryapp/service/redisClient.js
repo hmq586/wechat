@@ -30,9 +30,9 @@ function getListContent(sOpenId){
 
 	return new Promise(function(resolve,reject){
 		client.lrange(sOpenId, 0, -1, function(err, reply) {
-    		console.log("content for list: " + sOpenId + " **********: " + reply);
+    		console.log("content for list: " + sOpenId + " **********: " + reply + "***");
     		var content = reply;
-    		if( !!!content ){
+    		if( content == ""){
     			content = "no conversation log found.";
     		}
     		resolve(content);
