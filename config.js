@@ -10,6 +10,6 @@ var config = {
    	"gh_106591ffb8a3": "Jerry test Subscription Account",
    	"o0KlM1i2_4-zHRmDk-IWGRlA1Cjc": "null"
    },
-   useRedis: true
+   useRedis: false
 };
 module.exports = config;
