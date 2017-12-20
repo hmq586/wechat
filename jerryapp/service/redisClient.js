@@ -38,10 +38,28 @@ function getListContent(sOpenId){
                 reject(content);
     		}
             else {
-    		  resolve(content);
+    		  resolve(formatToWechat(content));
             }
 		});
      });
+}
+
+function formatToWechat(raw){
+    var formatted = "[" + raw + "]";
+    var result = "";
+    var logs = JSON.parse(formatted);
+    for( var i = 0; i < logs.length; i++){
+        var record = "record[" + i + "]:" + " from: " + logs[i].from
+         + " to: " + logs[i].to + " question: " + logs[i].question
+        + " answer: " + logs[i].answer;
+        if( i === 0){
+            result = record;
+        }
+        else{
+            result = result + "\n" + record;
+        }
+    }
+    return result;
 }
 
 var oRedisClient = {
