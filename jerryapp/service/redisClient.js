@@ -33,7 +33,7 @@ function getListContent(sOpenId){
 
 var oRedisClient = {
 	insert: insertIntoList,
-	clear: clearList,
+	clearList: clearList,
 	getList: getListContent
 };
 
