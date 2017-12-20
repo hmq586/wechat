@@ -43,6 +43,8 @@ UnhandledPromiseRejectionWarning: Unhandled promise rejection
 * heroku logs -n 1500
 * heroku logs -t 
 
+[log](https://devcenter.heroku.com/articles/logging#view-logs)
+
 # API
 
 * Jerry test account get access token: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx73b49bfe02fd3a17&secret=8a269a9916c32069901c2e6b6f3f16a6
