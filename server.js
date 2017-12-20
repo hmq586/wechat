@@ -10,7 +10,7 @@ routesEngine(app);
 console.log("play around with redis ******************************");
 
 var redis = require("redis"),
-    client = redis.createClient(); // by default localhost will be used!!
+    client = redis.createClient(process.env.REDIS_URL); // by default localhost will be used!!
 
 client.on("error", function (err) {
     console.log("Redis failed! Error " + err);
