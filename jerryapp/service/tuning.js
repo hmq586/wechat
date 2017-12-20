@@ -1,6 +1,8 @@
 var request = require('request');
 var getXMLNodeValue = require("../tool/xmlparse.js");
+var formattedValue = require("../tool/formatValue.js");
 var replyMessage = require("../tool/replyMessage.js");
+var conversationLogService = require("./conversationLogService.js");
 
 const url = "http://www.tuling123.com/openapi/api?key=de4ae9269c7438c33de5806562a35cac&info=";
 
@@ -16,6 +18,7 @@ module.exports = function(wholecontent, question, res){
   if(data){
      var text = JSON.parse(data).text;
      console.log("TUNING, question: " + question + " answer: " + text);
+     conversationLogService(wholecontent, question, text);
      var xml = replyMessage(wholecontent, text);
      res.send(xml);
   } else {
