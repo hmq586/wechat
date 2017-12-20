@@ -27,7 +27,7 @@ function getList(sToUserOpenId){
 }
 
 function deleteLog(sToUserOpenId){
-	redisClient.clearList(sToUserOpenId);
+	return redisClient.clearList(sToUserOpenId);
 }
 
 var oService = {

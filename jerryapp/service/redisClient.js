@@ -10,11 +10,15 @@ function insertIntoList(sOpenId, oElement){
 }
 
 function clearList(sOpenId){
-	client.del(sOpenId, function(error, count){
-    	if(error){
-        	console.log("error when clear list:" + error);
-    	}
-    	console.log("list clear successfully: " + count); 
+	return Promise(function(resolve,reject){
+		client.del(sOpenId, function(error, count){
+    		if(error){
+        		console.log("error when clear list:" + error);
+        		reject(error);
+    		}
+    		console.log("list clear successfully: " + count);
+    		resolve(count); 
+		});
 	});
 }
 
