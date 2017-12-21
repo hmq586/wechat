@@ -117,9 +117,7 @@ Vue.component('jerry-grid', {
 /*
 不使用.vue 单文件时，通过 Vue 构造函数 创建一个 Vue 根实例来启动vuejs 。.vue文件中不用Vue创建实例，用export default 。 .vue文件中 export default 后面的对象 就相当于 new Vue() 构造函数中的接受的对象：
 */
-new Vue({
-  el: '#demo',
-  data: {
+var testData = {
     searchQuery2: '',
     gridColumns: ['name', 'power'],
     gridData: [
@@ -128,7 +126,10 @@ new Vue({
       { name: 'Jackie Chan', power: 7000 },
       { name: 'Jet Li', power: 8000 }
     ]
-  }
+  };
+new Vue({
+  el: '#demo',
+  data: testData 
 });
 
 }//]]> 
