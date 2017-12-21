@@ -1,0 +1,1 @@
+ text/x-template，在js文件中是无法编译.
