@@ -21,7 +21,7 @@
     <tbody>
       <tr v-for="entry in filteredData">
         <td v-for="key in columns">
-          {{entry[key]}}
+           {{entry[key]}}
         </td>
       </tr>
     </tbody>
@@ -56,7 +56,7 @@ th {
 <script>
 window.onload=function(){
 // register the grid component
-Vue.component('demo-grid', {
+Vue.component('jerry-grid', {
   template: '#grid-template',
   props: {
     data: Array,
@@ -131,11 +131,11 @@ var demo = new Vue({
   <form id="search">
     Search <input name="query" v-model="searchQuery">
   </form>
-  <demo-grid
+  <jerry-grid
     :data="gridData"
     :columns="gridColumns"
     :filter-key="searchQuery">
-  </demo-grid>
+  </jerry-grid>
 </div>
 
 </html>
