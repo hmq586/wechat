@@ -127,12 +127,19 @@ var testData = {
       { name: 'Jet Li', power: 8000 }
     ]
   };
+
+  setTimeout(function(){
+  testData.gridData.splice(0,1);
+}, 1000);
+
 new Vue({
   el: '#demo',
   data: testData 
 });
 
 }//]]> 
+
+
 </script>
 <!-- demo root element -->
 <div id="demo">
