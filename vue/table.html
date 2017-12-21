@@ -114,7 +114,10 @@ Vue.component('jerry-grid', {
 
 // bootstrap the demo
 // Jerry 2017-12-21 4:12PM if el changes to other name, it does not work then.
-var demo = new Vue({
+/*
+不使用.vue 单文件时，通过 Vue 构造函数 创建一个 Vue 根实例来启动vuejs 。.vue文件中不用Vue创建实例，用export default 。 .vue文件中 export default 后面的对象 就相当于 new Vue() 构造函数中的接受的对象：
+*/
+new Vue({
   el: '#demo',
   data: {
     searchQuery2: '',
@@ -126,7 +129,7 @@ var demo = new Vue({
       { name: 'Jet Li', power: 8000 }
     ]
   }
-})
+});
 
 }//]]> 
 </script>
