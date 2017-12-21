@@ -12,7 +12,7 @@
         <th v-for="key in columns"
           @click="sortBy(key)"
           :class="{ active: sortKey == key }">
-          Jerry key {{ key | capitalize }}
+          {{ key | capitalize }}
           <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
           </span>
         </th>
@@ -63,6 +63,8 @@ Vue.component('jerry-grid', {
     columns: Array,
     filterKey: String
   },
+  // called only once during initialization
+  // the real matters is what has been returned in computed function
   data: function () {
     var sortOrders = {}
     this.columns.forEach(function (key) {
@@ -76,10 +78,10 @@ Vue.component('jerry-grid', {
   // called every time when vue is rendering, directly bound to template
   computed: {
     filteredData: function () {
-      var sortKey = this.sortKey
-      var filterKey = this.filterKey && this.filterKey.toLowerCase()
-      var order = this.sortOrders[sortKey] || 1
-      var data = this.data
+      var sortKey = this.sortKey;
+      var filterKey = this.filterKey && this.filterKey.toLowerCase();
+      var order = this.sortOrders[sortKey] || 1;
+      var data = this.data;
       if (filterKey) {
         data = data.filter(function (row) {
           return Object.keys(row).some(function (key) {
