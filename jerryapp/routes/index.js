@@ -30,9 +30,9 @@ module.exports = function (app) {
       tokenValidationTool(req, res);
     }
     else{
-      var client = require('redis').createClient(process.env.REDIS_URL);
-      console.log("*************** redis instance *****************");
-      printObject(process);
+      if( config.useRedis) {
+        var client = require('redis').createClient(process.env.REDIS_URL);
+      }
       res.send("Hello World");
     }
   });

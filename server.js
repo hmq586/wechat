@@ -5,6 +5,7 @@ var routesEngine = require('./jerryapp/routes/index.js'); // index.js actually
 var app = express();
 
 app.use('/ui5', express.static(process.cwd() + '/webapp'));
+app.use('/v', express.static(process.cwd() + '/vue'));
 routesEngine(app);
 
 app.listen(process.env.PORT || 3000, function () {
