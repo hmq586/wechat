@@ -12,7 +12,7 @@
         <th v-for="key in columns"
           @click="sortBy(key)"
           :class="{ active: sortKey == key }">
-          {{ key | capitalize }}
+          Jerry key {{ key | capitalize }}
           <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
           </span>
         </th>
@@ -73,6 +73,7 @@ Vue.component('jerry-grid', {
       sortOrders: sortOrders
     }
   },
+  // called every time when vue is rendering
   computed: {
     filteredData: function () {
       var sortKey = this.sortKey
