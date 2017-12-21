@@ -66,10 +66,10 @@ Vue.component('jerry-grid', {
   // called only once during initialization
   // the real matters is what has been returned in computed function
   data: function () {
-    var sortOrders = {}
+    var sortOrders = {};
     this.columns.forEach(function (key) {
       sortOrders[key] = 1
-    })
+    });
     return {
       sortKey: '',
       sortOrders: sortOrders
@@ -113,10 +113,11 @@ Vue.component('jerry-grid', {
 })
 
 // bootstrap the demo
+// Jerry 2017-12-21 4:12PM if el changes to other name, it does not work then.
 var demo = new Vue({
   el: '#demo',
   data: {
-    searchQuery: '',
+    searchQuery2: '',
     gridColumns: ['name', 'power'],
     gridData: [
       { name: 'Chuck Norris', power: Infinity },
@@ -132,12 +133,12 @@ var demo = new Vue({
 <!-- demo root element -->
 <div id="demo">
   <form id="search">
-    Search <input name="query" v-model="searchQuery">
+    Search <input name="query" v-model="searchQuery2">
   </form>
   <jerry-grid
     :data="gridData"
     :columns="gridColumns"
-    :filter-key="searchQuery">
+    :filter-key="searchQuery2">
   </jerry-grid>
 </div>
 
