@@ -6,10 +6,10 @@ var app = express();
 
 app.use('/ui5', express.static(process.cwd() + '/webapp'));
 app.use('/v', express.static(process.cwd() + '/vue'));
+app.use('/map', express.static(process.cwd() + '/map'));
 routesEngine(app);
 
 app.listen(process.env.PORT || 3000, function () {
-      // c:\\code\\git\\wechat\\app
   console.log('Listening on port, process.cwd(): ' + process.cwd() );
 });
 
