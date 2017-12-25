@@ -68,3 +68,9 @@ UnhandledPromiseRejectionWarning: Unhandled promise rejection
 * delete custom menu: 
 
 https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=5_g-u6YuCk3xqfHILzYrK4dOCWPaEwUqafiYH-ZfV5YTlDqg59R32zC2MeBTaspJRSTcVvr49d3jrlxwLMefZIwoBuZfaDfwT5sMQBijv7qSW0tSQKfyugEOqght6VNUasu7N48zfrY-spq9UTZBMcAGAHJU
+
+# learn
+
+* app.use(bodyParser.json());
+* app.use(bodyParser.urlencoded({ extended: false }));
+顾名思义，bodyParser.json是用来解析json数据格式的。bodyParser.urlencoded则是用来解析我们通常的form表单提交的数据，也就是请求头中包含这样的信息： Content-Type: application/x-www-form-urlencoded
