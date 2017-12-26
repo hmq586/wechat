@@ -2,7 +2,7 @@ var config = require("../../config.js");
 var request = require('request');
 var postWCMessage = require("./postMessageToUser.js");
 var createSocialMediaProfile = require("./createSocialMediaProfile.js");
-
+var bindProfileWithCustomerID = require("./bindSocialProfileWithIndividualCustomer.js");
 var url = config.individualCustomerurl + '?$top=1';
 
 var getTokenOptions = {
@@ -71,18 +71,19 @@ function _createIndividualCustomer(token, fromUserName){
    Step3: bind the profile created in step two with customer ID got from step one
 */
 
-module.exports = function createAccount(fromUserName){
+module.exports = function createAccount(fromUserName, lastName, firstName){
   getToken().then(function(token) {
   _createIndividualCustomer(token, fromUserName).then(function(data){
     var customerID = data.d.results.CustomerID
     var message = "Individual Account created: " + customerID;
     console.log(message);
-    postWCMessage(fromUserName, message);
+    // postWCMessage(fromUserName, message);
 
     // step2: create social media user profile
-    createSocialMediaProfile().then(function(oCreatedProfile){
+    createSocialMediaProfile(fromUserName, lastName, firstName).then(function(oCreatedProfile){
         console.log("created id: " + oCreatedProfile.id);
         console.log("uuid: " + oCreatedProfile.uuid);
+        bindProfileWithCustomerID(fromUserName, lastName, firstName);
     });
   });
 });

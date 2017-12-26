@@ -16,7 +16,7 @@ var ocreateSocialMediaProfileOptions = {
                       +'<SocialMediaUserProfile>'
                       +'<SocialMediaUserCategoryCode>02</SocialMediaUserCategoryCode>'
                       +'<UserInformation >'
-                      +'<SocialMediaUserAccountID>'+openId+'</SocialMediaUserAccountID>'
+                      +'<SocialMediaUserAccountID>'+ openId +'</SocialMediaUserAccountID>'
                       +'<SocialMediaChannelCode>905</SocialMediaChannelCode>'
                       +'<FamilyName>'+ lastname+'</FamilyName>'
                       +'<GivenName>'+ firstname+'</GivenName>'

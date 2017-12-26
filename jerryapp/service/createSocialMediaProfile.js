@@ -1,12 +1,10 @@
 var request = require('request');
 var config = require("../../config.js");
 
-var openId = "6070";
-var firstname = "Jerry";
-var lastname = "Wang";
+function createSocialMediaProfile(fromUserName, lastname, firstname) {
 
-var ocreateSocialMediaProfileOptions = {
-        url: "https://qxl-cust233.dev.sapbydesign.com/sap/bc/srt/scs/sap/managesocialmediauserprofilein",
+  var ocreateSocialMediaProfileOptions = {
+        url: config.mainUserProfileEndPoint,
         method: "POST",
         headers: {
             "content-type": "text/xml",
@@ -16,29 +14,29 @@ var ocreateSocialMediaProfileOptions = {
                       +'<SocialMediaUserProfile>'
                       +'<SocialMediaUserCategoryCode>02</SocialMediaUserCategoryCode>'
                       +'<UserInformation >'
-                      +'<SocialMediaUserAccountID>'+openId+'</SocialMediaUserAccountID>'
+                      +'<SocialMediaUserAccountID>' + fromUserName + '</SocialMediaUserAccountID>'
                       +'<SocialMediaChannelCode>905</SocialMediaChannelCode>'
-                      +'<FamilyName>'+ lastname+'</FamilyName>'
-                      +'<GivenName>'+ firstname+'</GivenName>'
+                      +'<FamilyName>' + lastname + '</FamilyName>'
+                      +'<GivenName>' + firstname + '</GivenName>'
                       +'</UserInformation>'
                       +'</SocialMediaUserProfile>'
                       +'</glob:SocialMediaUserProfileBundleMaintainRequest_sync></soapenv:Body></soapenv:Envelope>'
               };
-
-function createSocialMediaProfile() {
   return new Promise(function(resolve,reject){
+    console.log("Step2: create social media profile");
       request(ocreateSocialMediaProfileOptions,function(error,response,body){
        var soapreg = /.*<ID>(.*)<\/ID>.*<UUID>(.*)<\/UUID>.*/;
-	   var soapresult = soapreg.exec(body);
-	   if( soapresult.length === 3){
-        var createdProfile = {
-          id: soapresult[1],
-          uuid: soapresult[2]
+       console.log("response from Social Media Profile creation: " + body);
+	     var soapresult = soapreg.exec(body);
+	     if( soapresult.length === 3){
+          var createdProfile = {
+            id: soapresult[1],
+            uuid: soapresult[2]
         };
 	   		resolve(createdProfile);
-	   }
-      }); 
-     });
+	    }
+    }); 
+  });
 }
 
 module.exports = createSocialMediaProfile;

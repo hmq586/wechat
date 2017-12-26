@@ -12,6 +12,7 @@ var config = {
    	"gh_106591ffb8a3": "Jerry test Subscription Account",
    	"o0KlM1i2_4-zHRmDk-IWGRlA1Cjc": "null"
    },
+   mainUserProfileEndPoint: "https://qxl-cust233.dev.sapbydesign.com/sap/bc/srt/scs/sap/managesocialmediauserprofilein",
    useRedis: false
 };
 module.exports = config;
