@@ -19,18 +19,22 @@ var getTokenOptions = {
 function getToken() {
   return new Promise(function(resolve,reject){
       var requestC = request.defaults({jar: true});
+      console.log("Step1: get csrf token via url: " + url );
+
       requestC(getTokenOptions,function(error,response,body){
        var csrfToken = response.headers['x-csrf-token'];
        if(!csrfToken){
           reject({message:"token fetch error"});
           return;
        }
+       console.log("Step1: csrf token got: " + csrfToken);
        resolve(csrfToken);
       }); 
      });
 }
 
 function _createIndividualCustomer(token, fromUserName){
+  console.log("Step1: try to create individual account for user: " + fromUserName);
 	return new Promise(function(resolve, reject){
 		var oPostData = {
 			"FirstName":"Wechat",
@@ -69,7 +73,6 @@ function _createIndividualCustomer(token, fromUserName){
 
 module.exports = function createAccount(fromUserName){
   getToken().then(function(token) {
-  console.log("token received: " + token);
   _createIndividualCustomer(token, fromUserName).then(function(data){
     var customerID = data.d.results.CustomerID
     var message = "Individual Account created: " + customerID;
