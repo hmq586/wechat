@@ -1,9 +1,12 @@
 var config = require("../../config.js");
 var request = require('request');
 var postWCMessage = require("./postMessageToUser.js");
+var createSocialMediaProfile = require("./createSocialMediaProfile.js");
+
+var url = config.individualCustomerurl + '?$top=1';
 
 var getTokenOptions = {
-        url: config.individualCustomerurl,
+        url: url,
         method: "GET",
         json:true,
         headers: {
@@ -23,7 +26,7 @@ function getToken() {
           return;
        }
        resolve(csrfToken);
-      }); // end of requestC
+      }); 
      });
 }
 
@@ -32,9 +35,11 @@ function _createIndividualCustomer(token, fromUserName){
 		var oPostData = {
 			"FirstName":"Wechat",
  			"LastName":fromUserName,
- 		"RoleCode": "ZCRM01",
- 		"CountryCode": "US",
- 		"StatusCode": "2"
+ 		  "RoleCode": "CRM000",
+ 		  "CountryCode": "US",
+ 		  "StatusCode": "2",
+      "Mobile":"028",
+      "Phone":"139"
 		};
 		var requestC = request.defaults({jar: true});
         var createOptions = {
@@ -47,37 +52,37 @@ function _createIndividualCustomer(token, fromUserName){
               },
               body:oPostData
         };
-        
         requestC(createOptions,function(error,response,data){
             if(error){
                 reject(error.message);
             }else {
                resolve(data);
             }
-        });// end of requestC
+        });
 	});
 }
 
-function printObject(oData){
-	for( var a in oData){
-		console.log("key: " + a);
-		console.log("value: " + oData[a]);
-		if( typeof oData[a] === "object"){
-			printObject(oData[a]);
-		}
-	}
-}
+/* Step1: create individual account, get an internal customer ID
+   Step2: create Social Media user profile, get a profile id
+   Step3: bind the profile created in step two with customer ID got from step one
+*/
 
 module.exports = function createAccount(fromUserName){
   getToken().then(function(token) {
   console.log("token received: " + token);
   _createIndividualCustomer(token, fromUserName).then(function(data){
-    var message = "account created: " + data.d.results.CustomerID;
+    var customerID = data.d.results.CustomerID
+    var message = "Individual Account created: " + customerID;
     console.log(message);
     postWCMessage(fromUserName, message);
+
+    // step2: create social media user profile
+    createSocialMediaProfile().then(function(oCreatedProfile){
+        console.log("created id: " + oCreatedProfile.id);
+        console.log("uuid: " + oCreatedProfile.uuid);
+    });
   });
 });
-
 };
 
 
