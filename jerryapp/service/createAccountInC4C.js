@@ -11,7 +11,7 @@ var getTokenOptions = {
         json:true,
         headers: {
             "content-type": "application/json",
-            'Authorization': 'Basic ' + new Buffer(config.credential).toString('base64'),
+            'Authorization': 'Basic ' + new Buffer(config.credential_odata).toString('base64'),
             "x-csrf-token" :"fetch"
         }
 };
