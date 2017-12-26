@@ -11,6 +11,8 @@ var config = require("../../config.js");
 var notifyWechatUser = require("../service/getAccountinC4C.js");
 var authorizeAndRedirect = require("./AuthorizationAndDirect.js");
 var printObject = require("../tool/printObject.js");
+
+
 if( config.useRedis ){ 
   var conversationLogService = require("../service/conversationLogService.js");
 }
@@ -24,6 +26,42 @@ module.exports = function (app) {
       res.header("Content-Type", "application/json;charset=utf-8");
       next();
     });
+
+
+  app.route('/qxl').get(function(req, res){
+    var request = require('request');
+    var url = config.individualCustomerurl + '?$top=1';
+    var getTokenOptions = {
+        url: url,
+        method: "GET",
+        json:true,
+        headers: {
+            "content-type": "application/json",
+            'Authorization': 'Basic ' + new Buffer(config.credential_odata).toString('base64'),
+            "x-csrf-token" :"fetch"
+        }
+    };
+
+  function getToken() {
+    return new Promise(function(resolve,reject){
+      var requestC = request.defaults({jar: true});
+      console.log("Step1: get csrf token via url: " + url );
+
+      requestC(getTokenOptions,function(error,response,body){
+       var csrfToken = response.headers['x-csrf-token'];
+       if(!csrfToken){
+          reject({message:"token fetch error"});
+          return;
+       }
+       console.log("Step1: csrf token got: " + csrfToken);
+       resolve(csrfToken);
+      }); 
+     });
+   }
+  getToken();
+   res.send("hello QXL");
+
+  });
 
   app.route('/').get(function(req,res){
     if( req.query && req.query.echostr) {
