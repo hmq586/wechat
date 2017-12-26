@@ -55,6 +55,7 @@ module.exports = function (app) {
        }
        console.log("Step1: csrf token got: " + csrfToken);
        resolve(csrfToken);
+       
       }); 
      });
    }
