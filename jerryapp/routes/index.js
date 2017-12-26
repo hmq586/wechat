@@ -55,13 +55,13 @@ module.exports = function (app) {
        }
        console.log("Step1: csrf token got: " + csrfToken);
        resolve(csrfToken);
-       
+
       }); 
      });
    }
-  getToken();
+  
+   getToken();
    res.send("hello QXL");
-
   });
 
   app.route('/').get(function(req,res){
