@@ -108,7 +108,7 @@ module.exports = function (app) {
 
     req.on("end",function(){
         res.status(200);
-        res.send({"success:":ok});
+        res.send({"success:":"ok"});
 
     });
   });
