@@ -107,8 +107,6 @@ module.exports = function (app) {
     });
 
     req.on("end",function(){
-        var payload = JSON.parse(_da);
-        console.log("data sent from C4C: " + payload);
         res.status(200);
         res.send({"success:":ok});
 
