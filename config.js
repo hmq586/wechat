@@ -1,6 +1,6 @@
 var config = {
    individualCustomerurl: "https://qxl-cust233.dev.sapbydesign.com/sap/c4c/odata/v1/c4codata/IndividualCustomerCollection",
-   indivudualCustomerNewurl: "https://my500203.c4c.saphybriscloud.cn/sap/c4c/odata/cust/v1/zindividualcustomer/CustomerCommonCollection?$filter=",
+   indivudualCustomerNewurl: "https://203.c4c.saphybriscloud.cn/sap/c4c/odata/cust/v1/zindividualcustomer/CustomerCommonCollection?$filter=",
    credential: "wangjerry37:NewUser1A",
    credential_qxl: "_QXL:Saptest1",
    credential_odata: "WANGJERRY62818:Saptest1",

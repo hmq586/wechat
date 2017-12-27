@@ -99,6 +99,18 @@ module.exports = function (app) {
     });
   });
 
+  app.route('/fromc4c').post(function(req,res){
+    var _da;
+    console.log("new data sent from C4C--------------------------")
+    req.on("data",function(data){
+        _da = data.toString("utf-8");
+    });
+
+    req.on("end",function(){
+        var payload = JSON.parse(_da);
+        console.log("data sent from C4C: " + payload);
+    });
+  });
 
   app.route('/').post(function(req,res){
     var _da;
@@ -125,8 +137,6 @@ module.exports = function (app) {
           var toUserId = formattedValue(getXMLNodeValue('ToUserName',_da));
           if( event === "subscribe"){
             var replyxml = replyMessage(_da, "Welcome to Jerry's subscription account");
-            // Jerry 2017-12-13 10:48PM Sean uses a Wechat post API to send reply to Wechat
-            // instead of directly sending response using res API
             createAccount(fromUserName);
             res.send(replyxml);
           }
