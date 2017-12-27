@@ -1,10 +1,10 @@
 var request = require('request');
-var config = require("../config.js");
+var config = require("../../config.js");
+var postWCMessage = require("./postMessageToUser.js");
 
-var userProfileId = "6070";
-var text = "Jerry";
-var ocreateSocialMediaActivityOptions = {
-        url: "https://qxl-cust233.dev.sapbydesign.com/sap/bc/srt/scs/sap/managesocialmediaactivityin",
+function createSocialMediaMessage(fromUserName, id, userProfileId, providerid, text) {
+  var ocreateSocialMediaActivityOptions = {
+        url: config.socialMediaMessageEndPoint,
         method: "POST",
         json:false,
         headers: {
@@ -13,36 +13,24 @@ var ocreateSocialMediaActivityOptions = {
         },
         body: '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global"><soapenv:Header/><soapenv:Body><glob:SocialMediaActivityBundleMaintainRequestsync>'
                         +'<SocialMediaActivity>'
-                        +'<SocialMediaMessageID>'+"I042419"+'</SocialMediaMessageID>'
-                        +'<SocialMediaUserProfileID>'+userProfileId+'</SocialMediaUserProfileID>'
-                        +'<SocialMediaActivityProviderID >WechatTest</SocialMediaActivityProviderID>'
-                        +'<InteractionContent ><Text>'+text+'</Text></InteractionContent>'
+                        +'<SocialMediaMessageID>' + id +'</SocialMediaMessageID>'
+                        +'<SocialMediaUserProfileID>'+ userProfileId +'</SocialMediaUserProfileID>'
+                        +'<SocialMediaActivityProviderID>' + providerid + '</SocialMediaActivityProviderID>'
+                        +'<InteractionContent ><Text>' + text + '</Text></InteractionContent>'
                         +'</SocialMediaActivity>'
                         +'</glob:SocialMediaActivityBundleMaintainRequestsync></soapenv:Body></soapenv:Envelope>'
 };
-
-function createMessage() {
   return new Promise(function(resolve,reject){
       request(ocreateSocialMediaActivityOptions,function(error,response,body){
-       var soapreg = /.*<ID>(.*)<\/ID>.*/;
-	   var soapresult = soapreg.exec(body);
-	   if( soapresult.length === 2){
-	   		console.log("created id: " + soapresult[1]);
-	   		resolve(soapresult[1]);
-	   }
+        var soapreg = /.*<ID>(.*)<\/ID>.*/;
+	      var soapresult = soapreg.exec(body);
+	      if( soapresult.length === 2){
+	   		   var message = "created Social Media Message ID: " + soapresult[1];
+	   		   resolve(message);
+           postWCMessage(fromUserName, message);
+	      }
       }); 
      });
 }
 
-function printObject(oData){
-  for( var a in oData){
-    console.log("key: " + a);
-    console.log("value: " + oData[a]);
-    if( typeof oData[a] === "object"){
-      printObject(oData[a]);
-    }
-  }
-}
-
-createMessage();
-console.log("done");
+module.exports = createSocialMediaMessage;

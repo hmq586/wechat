@@ -81,9 +81,16 @@ module.exports = function createAccount(fromUserName, lastName, firstName){
 
     // step2: create social media user profile
     createSocialMediaProfile(fromUserName, lastName, firstName).then(function(oCreatedProfile){
-        console.log("created id: " + oCreatedProfile.id);
-        console.log("uuid: " + oCreatedProfile.uuid);
-        bindProfileWithCustomerID(fromUserName, lastName, firstName);
+        console.log("created Social Media Profile ID: " + oCreatedProfile.id);
+        console.log("created Social Media Profile UUID: " + oCreatedProfile.uuid);
+        bindProfileWithCustomerID(fromUserName, oCreatedProfile.uuid, 
+          customerID).then(function(flag){
+            if( flag === "OK"){
+               var message = "The following objects are created for you in C4C system." + 
+               "Customer ID: " + customerID + " SocialMedia User Profile ID: " + oCreatedProfile.id;
+               postWCMessage(fromUserName, message);
+            }            
+          });
     });
   });
 });

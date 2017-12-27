@@ -22,7 +22,11 @@ function bindProfileWithCustomer(fromUsername, profileUUID, customerID) {
                 };
      return new Promise(function(resolve,reject){
      	request(options, function (error, response, body) {
-        	console.log(body);
+        	var soapreg = /.*<ID>(.*)<\/ID>.*<UUID>(.*)<\/UUID>.*/;
+	     	var soapresult = soapreg.exec(body);
+	     	if(( soapresult.length === 3) && (soapresult[2] === profileUUID)){
+	     		resolve("OK");
+	     	}
         });
      });
 }
