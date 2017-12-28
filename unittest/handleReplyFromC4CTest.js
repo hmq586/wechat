@@ -1,0 +1,1 @@
+var reply = require('../jerryapp/service/handleReplyFromC4C.js');
