@@ -10,3 +10,8 @@ jar cfm build\jar\HelloWorld.jar myManifest -C build\classes .
 - hello world.jar is generated. 
 
 java -jar build\jar\HelloWorld.jar - see hello world in console.
+
+setant.bat
+
+ant compile jar run
+
