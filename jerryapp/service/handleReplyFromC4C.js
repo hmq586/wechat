@@ -15,8 +15,21 @@ the text maintained in C4C system to user's Wechat app.
 var config = require("../../config.js");
 var request = require('request');
 var postWCMessage = require("./postMessageToUser.js");
+var getSocialMediaActivity = require("./getSocialMediaActivity.js");
+var getSocialMediaUserProfile = require("./getSocialMediaUserProfile.js");
+
+const prefixLength = "content=".length;
 
 function handleReplyFromC4C(payload){
-	var messageID = JSON.parse(payload);
+	var json = unescape(payload.substr(prefixLength, payload.length - prefixLength));
+	var oPayload = JSON.parse(json);
+	getSocialMediaActivity(oPayload.original_id).then(function(profileID){
+		getSocialMediaUserProfile(profileID).then(function(wechatID){
+			postWCMessage(wechatID, oPayload.text); 
+		});
+	});
+
 }
+
+module.exports = handleReplyFromC4C;
 
