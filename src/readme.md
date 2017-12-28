@@ -15,3 +15,4 @@ setant.bat
 
 ant compile jar run
 
+ant -f build1.xml
