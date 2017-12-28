@@ -15,6 +15,7 @@ var config = {
    mainUserProfileEndPoint: "https://qxl-cust233.dev.sapbydesign.com/sap/bc/srt/scs/sap/managesocialmediauserprofilein",
    socialMediaMessageEndPoint: "https://qxl-cust233.dev.sapbydesign.com/sap/bc/srt/scs/sap/managesocialmediaactivityin",
    socialMediaMessageGetEndPoint: "https://qxl-cust233.dev.sapbydesign.com/sap/bc/srt/scs/sap/querysocialmediaactivityin",
+   socialMediaProfileGetEndPoint: "https://qxl-cust233.dev.sapbydesign.com/sap/bc/srt/scs/sap/requestforsocialmediauserprofi",
    useRedis: false
 };
 module.exports = config;
