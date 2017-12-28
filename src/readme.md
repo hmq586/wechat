@@ -6,4 +6,7 @@ java -cp build\classes oata.HelloWorld
 echo Main-Class: oata.HelloWorld>myManifest
 Once done, a file is generated with content: Main-Class: oata.HelloWorld
 
-jar cfm build\jar\HelloWorld.jar myManifest -C build\classes .
+jar cfm build\jar\HelloWorld.jar myManifest -C build\classes . 
+- hello world.jar is generated. 
+
+java -jar build\jar\HelloWorld.jar - see hello world in console.
