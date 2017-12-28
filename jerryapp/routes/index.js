@@ -107,6 +107,7 @@ module.exports = function (app) {
     });
 
     req.on("end",function(){
+        console.log("payload from C4C: " + _da);
         res.status(200);
         res.send({"success:":"ok"});
 
