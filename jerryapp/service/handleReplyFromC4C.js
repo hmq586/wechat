@@ -28,7 +28,6 @@ function handleReplyFromC4C(payload){
 			postWCMessage(wechatID, oPayload.text); 
 		});
 	});
-
 }
 
 module.exports = handleReplyFromC4C;
