@@ -1,11 +1,10 @@
 sap.ui.define([
-	"ygsd/controller/BaseController",
+	"jerryTile/controller/BaseController",
 	'sap/ui/model/json/JSONModel'
 ], function(Controller,JSONModel) {
 	"use strict";
 
-	return Controller.extend("ygsd.controller.createTicket", {
-
+	return Controller.extend("jerryTile.controller.createTicket", {
 			onInit: function() {
 				this.accountModel = new JSONModel({
 					"text":"",
@@ -17,27 +16,17 @@ sap.ui.define([
 
 			onSubmit :function(){
 				var oTicket = {};
+				var that = this;
 				oTicket = this.accountModel.getData();
-				oTicket.wxOpenId = this.getAccessInfo().openid;
-				oTicket.entity = "ticket";
 				this.getView().setBusy(true);
-				this.callService("/create","POST",oTicket,jQuery.proxy(this.submitSuccess,this),jQuery.proxy(this.submitError,this));
+				setTimeout( function(){
+					that.getView().setBusy(false);
+					that.showMessage("Ticket created successfully");
+					that.navBack();
+				}, 1000);
 			},
-
-			submitSuccess:function(result){
-				this.getView().setBusy(false);
-				this.showMessage("创建成功");
-				this.navBack();
-			},
-
-			submitError:function(result){
-				this.getView().setBusy(false);
-				this.showMessage(result,"error");
-			},
-
 			onCancel :function(){
 				this.navBack();
 			},
 	});
-
 });

@@ -27,6 +27,42 @@ sap.ui.define([
 				error: errorCallback
 			});
 		},
+
+		showMessage: function(sMessage, Type) {
+			jQuery.sap.require("sap.m.MessageBox");
+			switch (Type) {
+				case "error":
+					sap.m.MessageBox.error(sMessage, {
+						title: "错误", 
+						onClose: null, 
+						textDirection: sap.ui.core.TextDirection.Inherit 
+					});
+					break;
+				case "warnning":
+					sap.m.MessageBox.warning(sMessage, {
+						title: "警告", 
+						onClose: null, 
+						textDirection: sap.ui.core.TextDirection.Inherit 
+					});
+					break;
+				default:
+					sap.m.MessageToast.show(sMessage, {
+						duration: 3000, 
+						width: "15em", 
+						my: "center bottom", 
+						at: "center bottom", 
+						of: window, 
+						offset: "0 0", 
+						collision: "fit fit", 
+						onClose: null, 
+						autoClose: true, 
+						animationTimingFunction: "ease", 
+						animationDuration: 3000, 
+						closeOnBrowserNavigation: true 
+					});
+			}
+		},
+
 		navBack: function() {
 			var oRouter = this.getRouter();
 
