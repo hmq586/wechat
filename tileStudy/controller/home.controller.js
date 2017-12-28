@@ -1,11 +1,10 @@
 sap.ui.define([
-	"ygsd/controller/BaseController",
+	"jerryTile/controller/BaseController",
 	'sap/ui/model/json/JSONModel'
 ], function(Controller, JSONModel) {
 	"use strict";
 
-	return Controller.extend("ygsd.controller.home", {
-
+	return Controller.extend("jerryTile.controller.home", {
 		onInit: function() {
 			var oModel = new JSONModel({
 				"TileCollection": [{

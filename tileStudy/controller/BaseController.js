@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(Controller, History) {
 	"use strict";
 
-	return Controller.extend("ygsd.controller.BaseController", {
+	return Controller.extend("jerryTile.controller.BaseController", {
 
 		getRouter: function() {
 			return this.getOwnerComponent().getRouter();
@@ -12,13 +12,8 @@ sap.ui.define([
 		getDeviceModel: function() {
 			return this.getOwnerComponent().getModel("device");
 		},
-
 		getServiceUrl: function() {
-			return "https://testc4cwc.duapp.com";
-		},
-
-		getAccessInfo :function(){
-			return this.getOwnerComponent().getAppData().accessInfo;
+			return "https://www.sap.com";
 		},
 
 		callService: function(sPath, method, postData, callBack,errorCallback) {
@@ -32,42 +27,6 @@ sap.ui.define([
 				error: errorCallback
 			});
 		},
-
-		showMessage: function(sMessage, Type) {
-			jQuery.sap.require("sap.m.MessageBox");
-			switch (Type) {
-				case "error":
-					sap.m.MessageBox.error(sMessage, {
-						title: "错误", // default
-						onClose: null, // default
-						textDirection: sap.ui.core.TextDirection.Inherit // default
-					});
-					break;
-				case "warnning":
-					sap.m.MessageBox.warning(sMessage, {
-						title: "警告", // default
-						onClose: null, // default
-						textDirection: sap.ui.core.TextDirection.Inherit // default
-					});
-					break;
-				default:
-					sap.m.MessageToast.show(sMessage, {
-						duration: 3000, // default
-						width: "15em", // default
-						my: "center bottom", // default
-						at: "center bottom", // default
-						of: window, // default
-						offset: "0 0", // default
-						collision: "fit fit", // default
-						onClose: null, // default
-						autoClose: true, // default
-						animationTimingFunction: "ease", // default
-						animationDuration: 1000, // default
-						closeOnBrowserNavigation: true // default
-					});
-			}
-		},
-
 		navBack: function() {
 			var oRouter = this.getRouter();
 

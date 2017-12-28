@@ -1,45 +1,29 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"ygsd/model/models"
+	"jerryTile/model/models"
 ], function(UIComponent, Device, models) {
 	"use strict";
-
-	return UIComponent.extend("ygsd.Component", {
-
+	return UIComponent.extend("jerryTile.Component", {
 		metadata: {
 			manifest: "json",
 			config: {
-				serviceUrl: "https://testc4cwc.duapp.com"
+				serviceUrl: "https://www.sap.com"
 			}
 		},
 		AppData : {
 			userInfo:{}
 		},
 
-		/**
-		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-		 * @public
-		 * @override
-		 */
 		init: function() {
-			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 			this._initializeRouter();
 		},
-		
 		_initializeRouter: function() {
-			// initialize the router
 			this._oRouter = this.getRouter();
 			this._oRouter.initialize();
-		},
-		
-		getAppData: function(){
-			return this.AppData;
 		}
 	});
-
 });
