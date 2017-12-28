@@ -1,0 +1,1 @@
+javac -sourcepath src -d build\classes src\oata\HelloWorld.java
