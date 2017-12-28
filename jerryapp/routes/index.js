@@ -9,6 +9,7 @@ var formattedValue = require("../tool/formatValue.js");
 var replyMessage = require("../tool/replyMessage.js");
 var config = require("../../config.js");
 var notifyWechatUser = require("../service/getAccountinC4C.js");
+var handlReplyFromC4C = require("../service/handleReplyFromC4C.js");
 var authorizeAndRedirect = require("./AuthorizationAndDirect.js");
 var printObject = require("../tool/printObject.js");
 
@@ -55,7 +56,6 @@ module.exports = function (app) {
        }
        console.log("Step1: csrf token got: " + csrfToken);
        resolve(csrfToken);
-
       }); 
      });
    }
@@ -101,16 +101,15 @@ module.exports = function (app) {
 
   app.route('/fromc4c').post(function(req,res){
     var _da;
-    console.log("new data sent from C4C--------------------------")
     req.on("data",function(data){
         _da = data.toString("utf-8");
     });
 
     req.on("end",function(){
         console.log("payload from C4C: " + _da);
+        handlReplyFromC4C(_da);
         res.status(200);
         res.send({"success:":"ok"});
-
     });
   });
 
@@ -159,7 +158,6 @@ module.exports = function (app) {
           }
 
           else if( eventKey === "review"){
-            
             conversationLogService.getLog(toUserId).then(
               function(logString){
                 var replyString = replyMessage(_da, logString);
@@ -213,7 +211,6 @@ module.exports = function (app) {
                              "key": "queryDrive"
                        }]
                      }
-
                  ]
             }
         };
