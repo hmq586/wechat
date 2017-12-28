@@ -73,9 +73,6 @@
 				"target": "ticket"
 			}],
 			"targets": {
-				"logonPage": {
-					"viewName": "logon"
-				},
 				"homePage": {
 					"viewName": "home"
 				},

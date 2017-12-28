@@ -16,8 +16,13 @@ sap.ui.define([
 			 this.getView().byId("createForm").bindElement("createAccpunt>/");
 			 this.getRouter().getRoute("createAccount").attachPatternMatched(this._onCreate, this);
 		 },
+
+		 _onCreate: function(){
+		 	this.showMessage("route matched!");
+		 }, 
 		 onSubmit :function(){
 			 var oAccount = this.accountModel.getData();
+			 var that = this;
 			 setTimeout( function(){
 					that.getView().setBusy(false);
 					that.showMessage("Account created successfully");
