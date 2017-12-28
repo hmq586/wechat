@@ -21,7 +21,7 @@ function getSocialMediaMessage(messageID) {
                         +'</glob:SocialMediaActivityByElementsQuery_sync></soapenv:Body></soapenv:Envelope>'
 };
   return new Promise(function(resolve,reject){
-      request(ocreateSocialMediaActivityOptions,function(error,response,body){
+      request(ogetSocialMediaActivityOptions,function(error,response,body){
         var soapreg = /.*<SocialMediaUserProfileID>(.*)<\/SocialMediaUserProfileID>.*/;
 	      var soapresult = soapreg.exec(body);
 	      if( soapresult.length === 2){
