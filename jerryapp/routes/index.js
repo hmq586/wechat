@@ -138,7 +138,7 @@ module.exports = function (app) {
           var toUserId = formattedValue(getXMLNodeValue('ToUserName',_da));
           if( event === "subscribe"){
             var replyxml = replyMessage(_da, "Welcome to Jerry's subscription account, 输入中文文字或者中文语音可以和机器人聊天");
-            createAccount(fromUserName);
+            // createAccount(fromUserName);
             res.send(replyxml);
           }
           else if( eventKey === "dataQuery"){
