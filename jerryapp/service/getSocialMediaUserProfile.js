@@ -3,6 +3,10 @@ var config = require("../../config.js");
 
 function getSocialMediaProfile(profileID) {
 
+  console.log("Jerry trace begin ***********************************");
+  console.log("url: " + config.socialMediaProfileGetEndPoint);
+  console.log("config.credential_qxl: " + config.credential_qxl);
+
   var ogetSocialMediaProfileOptions = {
         url: config.socialMediaProfileGetEndPoint,
         method: "POST",
@@ -20,6 +24,9 @@ function getSocialMediaProfile(profileID) {
                       +'</SocialMediaUserProfileSelectionByElements>'
                       +'</glob:SocialMediaUserProfileRequest_sync></soapenv:Body></soapenv:Envelope>'
               };
+
+  console.log("body: " + ogetSocialMediaProfileOptions.body);
+  console.log("Jerry trace end ***********************************");
 
   return new Promise(function(resolve,reject){
       request(ogetSocialMediaProfileOptions,function(error,response,body){
