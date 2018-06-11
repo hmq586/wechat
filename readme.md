@@ -31,6 +31,8 @@ Nodejs执行结果和浏览器里结果不一样。。。
 * node-inspector &
 * node --debug app.js
 * 通过URL http://127.0.0.1:8080/debug?port=5858 就可以进行调试了。
+does not work on 2018-04-04!!!!!!!!!!!!!!!
+Try new built-in tool: node --inspect <your_file>.js
 
 网页授权获取用户基本信息: 订阅号无法开通此接口, 服务号必须通过微信认证
 可以使用测试公众号.
