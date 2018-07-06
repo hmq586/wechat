@@ -30,6 +30,8 @@ function getSocialMediaProfile(profileID) {
 
   return new Promise(function(resolve,reject){
       request(ogetSocialMediaProfileOptions,function(error,response,body){
+
+        console.log("Jerry web service response: " + body);
         var soapreg = /.*<SocialMediaUserAccountID>(.*)<\/SocialMediaUserAccountID>.*/;
 	      var soapresult = soapreg.exec(body);
 	      if( soapresult.length === 2){
