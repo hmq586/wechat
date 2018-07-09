@@ -2,7 +2,7 @@ var config = require("../config.js");
 var request = require('request');
 
 var getTokenOptions = {
-        url: "https://my306768.vlab.sapbydesign.com/sap/c4c/dis?sap-client=004",
+        url: "https://my306768.vlab.sapbydesign.com/sap/c4c/dis",
         method: "GET",
         headers: {
             'Authorization': 'Basic ' + new Buffer("WANGJERRYE7000198:Sap12345").toString('base64')
@@ -12,8 +12,10 @@ var getTokenOptions = {
 function getToken() {
   return new Promise(function(resolve,reject){
       var requestC = request.defaults({jar: true});
+      console.time("Remote");
       requestC(getTokenOptions,function(error,response,body){
         console.log("response body: " + body);
+        console.timeEnd("Remote");
        resolve(response);
       }); 
      });
@@ -30,6 +32,6 @@ function printObject(oData){
 }
 
 getToken().then(function(response) {
-	   printObject(response);
+	   // printObject(response);
 });
 
