@@ -2,7 +2,7 @@ var config = require("../config.js");
 var request = require('request');
 
 var getTokenOptions = {
-        url: "https://my306768.vlab.sapbydesign.com/sap/c4c/dis",
+        url: "https://my306768.vlab.sapbydesign.com/sap/c4c/dis?ticketid=70714",
         method: "GET",
         headers: {
             'Authorization': 'Basic ' + new Buffer("WANGJERRYE7000198:Sap12345").toString('base64')
