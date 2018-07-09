@@ -5,7 +5,7 @@ var getTokenOptions = {
         url: "https://my306768.vlab.sapbydesign.com/sap/c4c/dis?ticketid=70714",
         method: "GET",
         headers: {
-            'Authorization': 'Basic ' + new Buffer("WANGJERRYE7000198:Sap12345").toString('base64')
+            'Authorization': 'Basic ' + new Buffer("Crmops:Ondemand1").toString('base64')
         }
 };
 
