@@ -87,3 +87,5 @@ https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=5_g-u6YuCk3xqfHILzYrK
 # 2018-07-24
 
 The "scripts" property is a dictionary containing script commands that are run at various times in the lifecycle of your package. The key is the lifecycle event, and the value is the command to run at that point.
+
+npm run-script <script name>
