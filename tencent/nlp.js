@@ -2,8 +2,8 @@
 var md5 = require('md5');
 
 var app_id = "2107823355";
-var time_stamp = new Date();
-var nonce_str = "20e3408a79";
+var time_stamp = Date.now() / 1000;
+var nonce_str = Date.now();
 var text = "腾讯人工智能";
 var app_key = "LHGNH0usjUTRRRSA";
 
@@ -12,5 +12,26 @@ var input = "app_id=" + app_id + "&nonce_str=" + nonce_str + "&text=" + encodeUR
 
 var upper = md5(input).toUpperCase();
 console.log(upper);
+
+input = input + "&sign=" + upper;
+
+var request = require('request');
+
+var oOptions = {
+	url: "https://api.ai.qq.com/fcgi-bin/nlp/nlp_wordseg",
+    method: "POST",
+        headers: {
+            "content-type": "application/x-www-form-urlencoded",
+        },
+        body: input
+};
+
+console.log("request sent: " + oOptions.body);
+
+var action = new Promise(function(resolve,reject){
+      request(oOptions,function(error,response,body){
+       console.log("response: " + body);
+     }); // end of request 
+   });
 
 
