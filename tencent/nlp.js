@@ -1,10 +1,9 @@
-
 var md5 = require('md5');
 
 var app_id = "2107823355";
 var time_stamp = Date.now() / 1000;
 var nonce_str = Date.now();
-var text = "腾讯人工智能";
+var text = "腾讯AI人工智能开放平台";
 var app_key = "LHGNH0usjUTRRRSA";
 
 var input = "app_id=" + app_id + "&nonce_str=" + nonce_str + "&text=" + encodeURI(text)  
