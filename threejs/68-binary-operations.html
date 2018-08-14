@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>Example 06.08 - Binary operations</title>
@@ -12,7 +11,6 @@
     <script type="text/javascript" src="libs/d3-threeD.js"></script>
     <script type="text/javascript" src="libs/TrackballControls.js"></script>
     
-
     <style>
         body {
             /* set margin to 0 and overflow to hidden, to go fullscreen */
@@ -25,7 +23,6 @@
 
 <div id="Stats-output">
 </div>
-<!-- Div which will hold the Output -->
 <div id="WebGL-output">
 </div>
 
@@ -33,7 +30,6 @@
 
 // once everything is loaded, we run our Three.js stuff.
 $(function () {
-
     var stats = initStats();
 
     // create a scene, that will hold all our elements such as objects, cameras and lights.
@@ -50,7 +46,6 @@ $(function () {
 
     var sphere1 = createMesh(new THREE.SphereGeometry(5, 20, 30));
     sphere1.position.x = -2;
-
 
     var sphere2 = createMesh(new THREE.SphereGeometry(5, 20, 30));
     sphere2.position.set(3, 0, 0);
