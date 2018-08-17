@@ -15,5 +15,14 @@ MongoClient.connect(url, function(err, db) {
         console.log(result);
         db.close();
     });
+
+
+  var whereStr = {"name":"Jerry"};  
+    dbo.collection("person").find(whereStr).toArray(function(err, result) {
+        if (err) throw err;
+        console.log("Find Jerry?" + result.length);
+        debugger;
+        db.close();
+    });
   db.close();
 });
