@@ -4,7 +4,7 @@ var config = {
    credential: "wangjerry37:NewUser1A",
    credential_qxl: "_QXL:Saptest1",
    credential_odata: "WANGJERRY62818:Saptest1",
-   testAccount: "o0KlM1i2_4-zHRmDk-IWGRlA1Cjc",
+   testAccount: "gh_3c1bbd6b174f",
    testAccountAppid: "wx27da4d9c25135f8b",
    testAccountSecret: "b8a6ac1939347ca5fddc4ebeca204710",
    accessToken: "wechat123456",
