@@ -1,7 +1,7 @@
 var jsSHA = require('jssha');
 
 module.exports = function(req,res){
-    var token="jerry";
+    var token="wechat123456";
     var signature = req.query.signature,
       timestamp = req.query.timestamp,
       echostr   = req.query.echostr,
